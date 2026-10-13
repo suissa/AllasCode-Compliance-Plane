@@ -1,0 +1,307 @@
+version: "1.0.0"
+catalog: allascode-compliance-plane
+jurisdiction: BR
+scope:
+  company_profiles: [MEI, ME]
+  note: "Baseline horizontal; ativar regras condicionais após avaliação de aplicabilidade."
+execution_points: [on_ingress, before_egress, between_agents, between_actions, scheduled, on_state_change]
+result_states: [compliant, non_compliant, indeterminate, not_applicable]
+enforcement_modes: [block, quarantine, warn, audit_only]
+precedence: [operation_override, action_policy, agent_policy, intent_policy, company_default]
+defaults:
+  execution:
+    on_ingress: true
+    before_egress: true
+    between_agents: true
+    between_actions: true
+    scheduled: false
+    on_state_change: true
+  enforcement: audit_only
+  evidence_required: true
+  fail_closed_for: [personal_data_export, payment, tax_filing, credential_change]
+  human_review_for: [ambiguous_legal_rule, high_impact_decision, exception_request]
+agents:
+  - ComplianceOrchestratorAgent
+  - LegalRuleRegistryAgent
+  - ApplicabilityAssessmentAgent
+  - ComplianceEvidenceAgent
+  - ExceptionAndHumanReviewAgent
+  - ComplianceMonitoringAgent
+  - PolicyConfigurationAgent
+  - AuditTrailAgent
+  - LGPDComplianceAgent
+  - DataInventoryAndMappingAgent
+  - DataSubjectRightsAgent
+  - ConsentAndLegalBasisAgent
+  - RetentionAndDeletionAgent
+  - DataSharingAndTransferAgent
+  - PrivacyIncidentAgent
+  - DPOApplicabilityAgent
+  - IdentityAndAccessComplianceAgent
+  - SecretsAndCredentialAgent
+  - EncryptionAndKeyManagementAgent
+  - SecurityLoggingAgent
+  - VulnerabilityAndPatchAgent
+  - BackupAndRecoveryAgent
+  - IncidentResponseAgent
+  - ThirdPartySecurityAgent
+  - BusinessRegistrationAgent
+  - CNAEAndPermitAgent
+  - TaxRegimeApplicabilityAgent
+  - DASAndTaxCalendarAgent
+  - RevenueThresholdAndEligibilityAgent
+  - InvoiceAndFiscalDocumentAgent
+  - TaxWithholdingAgent
+  - BookkeepingAndReconciliationAgent
+  - AnnualDeclarationsAgent
+  - MunicipalAndStateObligationsAgent
+  - PaymentComplianceAgent
+  - CashFlowAndReconciliationAgent
+  - FraudAndChargebackAgent
+  - RefundAndCancellationAgent
+  - FinancialRecordRetentionAgent
+  - EmploymentRelationshipRiskAgent
+  - PayrollAndBenefitsAgent
+  - eSocialAndLaborObligationsAgent
+  - OccupationalHealthAndSafetyAgent
+  - WorkingTimeAndLeaveAgent
+  - ContractorClassificationAgent
+  - ConsumerRightsAgent
+  - OfferAndAdvertisingAgent
+  - ContractAndTermsAgent
+  - CancellationAndWarrantyAgent
+  - CustomerSupportAndComplaintAgent
+  - EcommerceDisclosureAgent
+  - IntellectualPropertyAgent
+  - EnvironmentalAndWasteAgent
+  - ProductSafetyAndTraceabilityAgent
+  - HealthAndSanitaryPermitAgent
+  - FoodHandlingAndTraceabilityAgent
+  - TransportAndMobilityComplianceAgent
+  - FinancialServicesApplicabilityAgent
+  - ProfessionalLicensingAgent
+  - PublicProcurementAgent
+  - AccessibilityAndDigitalServiceAgent
+actions:
+  - ValidateSchema
+  - NormalizeInput
+  - ClassifyData
+  - DetectPersonalData
+  - DetectSensitiveData
+  - ResolveEntity
+  - ResolveJurisdiction
+  - AssessApplicability
+  - ValidateLegalBasis
+  - ValidateRuleVersion
+  - ValidateDocument
+  - ValidateSignature
+  - ValidateTotals
+  - DetectDuplicate
+  - CompareRecords
+  - MinimizePayload
+  - RedactPersonalData
+  - RedactSecrets
+  - EncryptPayload
+  - DecryptAuthorizedPayload
+  - TokenizeIdentifier
+  - EnforceTenantBoundary
+  - CheckAuthorization
+  - CheckPurpose
+  - CheckRetention
+  - DeleteEligibleData
+  - RestrictAccess
+  - RotateCredential
+  - RevokeCredential
+  - EvaluateIntent
+  - EvaluatePolicy
+  - BlockOperation
+  - QuarantinePayload
+  - WarnOperator
+  - RequireHumanReview
+  - RequestMissingEvidence
+  - ApplyApprovedException
+  - RevalidateAfterMutation
+  - FailClosed
+  - FailOpenWithAudit
+  - CreateEvidenceRecord
+  - HashArtifact
+  - AppendAuditEvent
+  - RecordRuleVersion
+  - RecordDecision
+  - MonitorDeadline
+  - ScheduleRecheck
+  - DetectRegulatoryChange
+  - OpenComplianceCase
+  - CloseComplianceCase
+  - ExportAuditBundle
+  - VerifyEvidenceIntegrity
+  - CalculateTax
+  - ReconcileRevenue
+  - CheckRevenueThreshold
+  - GenerateDueDateAlert
+  - ValidateInvoice
+  - CheckInvoiceAuthorization
+  - ReconcilePayment
+  - ValidateRefund
+  - ValidatePayroll
+  - ValidateDeclarationReadiness
+  - GenerateComplianceReport
+  - GeneratePrivacyNotice
+  - AcknowledgeDataSubjectRequest
+  - RouteDataSubjectRequest
+  - NotifyIncidentOwner
+  - PrepareRegulatoryNotificationDraft
+  - SendApprovedNotice
+  - DeliverCustomerDisclosure
+  - RecordCustomerAcceptance
+intents:
+  - {id: PRIV-001, name: LGPD, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-002, name: DataMinimization}
+  - {id: PRIV-003, name: PurposeLimitation}
+  - {id: PRIV-004, name: LegalBasis}
+  - {id: PRIV-005, name: SensitiveData}
+  - {id: PRIV-006, name: ChildrenAndAdolescents, conditional: true}
+  - {id: PRIV-007, name: TransparencyNotice}
+  - {id: PRIV-008, name: ConsentValidity}
+  - {id: PRIV-009, name: DataSubjectRights}
+  - {id: PRIV-010, name: RetentionLimit}
+  - {id: PRIV-011, name: SecureDeletion}
+  - {id: PRIV-012, name: ProcessorContract}
+  - {id: PRIV-013, name: SharingAndTransfer}
+  - {id: PRIV-014, name: IncidentNotification}
+  - {id: PRIV-015, name: DPOApplicability}
+  - {id: PRIV-016, name: PrivacyByDesign}
+  - {id: PRIV-017, name: AutomatedDecision}
+  - {id: PRIV-018, name: DataAccuracy}
+  - {id: PRIV-019, name: AnonymizationClaim}
+  - {id: PRIV-020, name: CrossContextLeakage}
+  - {id: SEC-001, name: Authentication}
+  - {id: SEC-002, name: Authorization}
+  - {id: SEC-003, name: TenantIsolation}
+  - {id: SEC-004, name: SecretsExposure}
+  - {id: SEC-005, name: Encryption}
+  - {id: SEC-006, name: KeyLifecycle}
+  - {id: SEC-007, name: InputValidation}
+  - {id: SEC-008, name: OutputFiltering}
+  - {id: SEC-009, name: AuditIntegrity}
+  - {id: SEC-010, name: VulnerabilityStatus}
+  - {id: SEC-011, name: BackupRecoverability}
+  - {id: SEC-012, name: IncidentReadiness}
+  - {id: SEC-013, name: ThirdPartyAccess}
+  - {id: SEC-014, name: RateAbuseProtection}
+  - {id: SEC-015, name: DataExportAuthorization}
+  - {id: SEC-016, name: SecureConfiguration}
+  - {id: CORP-001, name: CNPJStatus}
+  - {id: CORP-002, name: LegalFormEligibility}
+  - {id: CORP-003, name: CNAECompatibility}
+  - {id: CORP-004, name: AddressAndJurisdiction}
+  - {id: CORP-005, name: PermitApplicability}
+  - {id: CORP-006, name: RegistrationConsistency}
+  - {id: CORP-007, name: CertificateValidity}
+  - {id: CORP-008, name: BusinessChangeReporting}
+  - {id: TAX-001, name: RegimeEligibility}
+  - {id: TAX-002, name: MEIEligibility}
+  - {id: TAX-003, name: RevenueThreshold}
+  - {id: TAX-004, name: RevenueClassification}
+  - {id: TAX-005, name: DASDueDate}
+  - {id: TAX-006, name: TaxCalculation}
+  - {id: TAX-007, name: WithholdingApplicability}
+  - {id: TAX-008, name: AnnualDeclaration}
+  - {id: TAX-009, name: SimplesObligations}
+  - {id: TAX-010, name: TaxRegimeTransition}
+  - {id: TAX-011, name: TaxEvidence}
+  - {id: TAX-012, name: TaxCalendar}
+  - {id: TAX-013, name: FiscalReconciliation}
+  - {id: TAX-014, name: TaxRecordRetention}
+  - {id: TAX-015, name: NoUnsupportedTaxAdvice}
+  - {id: FISC-001, name: InvoiceRequired}
+  - {id: FISC-002, name: InvoiceSchema}
+  - {id: FISC-003, name: InvoiceSequence}
+  - {id: FISC-004, name: InvoiceAuthorization}
+  - {id: FISC-005, name: InvoiceRecipient}
+  - {id: FISC-006, name: ServiceMunicipalRule}
+  - {id: FISC-007, name: ProductTaxRule}
+  - {id: FISC-008, name: CorrectionAndCancellation}
+  - {id: FISC-009, name: InvoiceOutboundDisclosure}
+  - {id: FISC-010, name: FiscalDocumentIntegrity}
+  - {id: FIN-001, name: PaymentAuthorization}
+  - {id: FIN-002, name: PixAndPaymentData}
+  - {id: FIN-003, name: Reconciliation}
+  - {id: FIN-004, name: RefundEligibility}
+  - {id: FIN-005, name: ChargebackEvidence}
+  - {id: FIN-006, name: FraudSignals}
+  - {id: FIN-007, name: CashFlowConsistency}
+  - {id: FIN-008, name: PaymentExport}
+  - {id: FIN-009, name: FinancialRecordRetention}
+  - {id: FIN-010, name: NoCredentialStorage}
+  - {id: LAB-001, name: EmploymentApplicability, conditional: true}
+  - {id: LAB-002, name: MEIEmployeeLimit, conditional: true}
+  - {id: LAB-003, name: PayrollAccuracy, conditional: true}
+  - {id: LAB-004, name: eSocialObligations, conditional: true}
+  - {id: LAB-005, name: FGTSAndSocialContributions, conditional: true}
+  - {id: LAB-006, name: WorkingTime, conditional: true}
+  - {id: LAB-007, name: LeaveAndTermination, conditional: true}
+  - {id: LAB-008, name: OccupationalSafety, conditional: true}
+  - {id: LAB-009, name: WorkerDataPrivacy, conditional: true}
+  - {id: LAB-010, name: ContractorMisclassification, conditional: true}
+  - {id: CONS-001, name: ConsumerDisclosure}
+  - {id: CONS-002, name: AdvertisingTruthfulness}
+  - {id: CONS-003, name: TotalPriceTransparency}
+  - {id: CONS-004, name: EcommerceInformation, conditional: true}
+  - {id: CONS-005, name: RightOfWithdrawal, conditional: true}
+  - {id: CONS-006, name: CancellationFlow}
+  - {id: CONS-007, name: WarrantyAndDefect}
+  - {id: CONS-008, name: ComplaintHandling}
+  - {id: CONS-009, name: DarkPatterns}
+  - {id: CONS-010, name: CustomerDataDisclosure}
+  - {id: CONS-011, name: TermsVersioning}
+  - {id: CONS-012, name: Accessibility, conditional: true}
+  - {id: CONT-001, name: ContractCompleteness}
+  - {id: CONT-002, name: ContractAuthority}
+  - {id: CONT-003, name: ContractVersion}
+  - {id: CONT-004, name: RenewalAndExpiry}
+  - {id: CONT-005, name: LiabilityAndWarranty}
+  - {id: CONT-006, name: Confidentiality}
+  - {id: CONT-007, name: IPOwnership}
+  - {id: CONT-008, name: ThirdPartyLicense}
+  - {id: CONT-009, name: ESignatureEvidence}
+  - {id: CONT-010, name: UnfairOrAmbiguousTerms}
+  - {id: OPS-001, name: ActivityLicense, conditional: true}
+  - {id: OPS-002, name: SanitaryPermit, conditional: true}
+  - {id: OPS-003, name: ProductTraceability, conditional: true}
+  - {id: OPS-004, name: ProductSafety, conditional: true}
+  - {id: OPS-005, name: EnvironmentalDuty, conditional: true}
+  - {id: OPS-006, name: WasteDestination, conditional: true}
+  - {id: OPS-007, name: ProfessionalLicense, conditional: true}
+  - {id: OPS-008, name: SectorRegulation, conditional: true}
+  - {id: OPS-009, name: PublicProcurement, conditional: true}
+  - {id: OPS-010, name: ImportExport, conditional: true}
+  - {id: OPS-011, name: RecallAndSafetyNotice, conditional: true}
+  - {id: OPS-012, name: LocalRuleApplicability, conditional: true}
+  - {id: GOV-001, name: RuleVersionCurrent}
+  - {id: GOV-002, name: EvidenceCompleteness}
+  - {id: GOV-003, name: DecisionTraceability}
+  - {id: GOV-004, name: PolicyCoverage}
+  - {id: GOV-005, name: ExceptionExpiry}
+  - {id: GOV-006, name: HumanReviewRequired}
+  - {id: GOV-007, name: RegulatoryChange}
+  - {id: GOV-008, name: DataLineage}
+  - {id: GOV-009, name: ControlConflict}
+  - {id: GOV-010, name: ComplianceStatusDisclosure}
+legal_sources_to_register:
+  - "Planalto — legislação federal consolidada"
+  - "Receita Federal do Brasil"
+  - "Portal do Simples Nacional"
+  - "Portal do Empreendedor / gov.br"
+  - "ANPD"
+  - "eSocial"
+  - "SEFAZ da unidade federativa aplicável"
+  - "Prefeitura e sistema fiscal municipal aplicável"
+  - "Órgão regulador setorial competente"
+production_gate:
+  require_official_source: true
+  require_effective_from: true
+  require_last_reviewed_at: true
+  require_rule_owner: true
+  unknown_rule_result: indeterminate
+  never_assume_not_applicable: true
