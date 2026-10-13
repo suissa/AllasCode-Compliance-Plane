@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://allascode.dev/schemas/compliance-registry.schema.json",
+  "$id": "https://github.com/suissa/AllasCode-Compliance-Plane/blob/main/schemas/compliance-registry.schema.json",
   "title": "AllasCode Compliance Registry",
   "description": "Structural contract for the Brazilian MEI/ME compliance registry. Legal applicability must be verified independently.",
   "type": "object",
@@ -176,7 +176,7 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "pattern": "^[A-Z][A-Za-z0-9]+Agent$"
+        "pattern": "^[A-Za-z][A-Za-z0-9]+Agent$"
       }
     },
     "actions": {
