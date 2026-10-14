@@ -10,11 +10,13 @@ from datetime import datetime, timezone
 from typing import Any, Mapping
 from uuid import uuid4
 
+from .catalog import ComplianceCatalog
 from .interceptor import ComplianceInterceptor, InterceptionResult
 from .runtime import ComplianceEngine, EvaluationContext, Policy, Result
 from .telemetry import JsonEvidenceSink
 
-LGPD_INTENTS = tuple(f"PRIV-{number:03d}" for number in range(1, 21))
+DEFAULT_CATALOG = ComplianceCatalog.load()
+LGPD_INTENTS = DEFAULT_CATALOG.lgpd_intents
 
 @dataclass(frozen=True)
 class Person:
@@ -46,11 +48,17 @@ class ComplianceDenied(PermissionError):
 
 class PersonService:
     """Example persistence boundary; replace the in-memory store with a repository."""
-    def __init__(self, engine: ComplianceEngine, *, audit_sink: JsonEvidenceSink | None = None) -> None:
+    def __init__(self, engine: ComplianceEngine, *, audit_sink: JsonEvidenceSink | None = None,
+                 catalog: ComplianceCatalog | None = None) -> None:
         self._people: dict[tuple[str, str], Person] = {}
+        self.catalog = catalog or ComplianceCatalog.load()
+        self.lgpd_intents = self.catalog.lgpd_intents
+        missing = set(self.lgpd_intents) - set(engine.intents)
+        if missing:
+            raise ValueError(f"LGPD intents missing from YAML runtime manifest: {sorted(missing)}")
         self.interceptor = ComplianceInterceptor(engine, audit_sink=audit_sink)
         # Person operations must not silently downgrade privacy checks to warn/audit.
-        for intent_id in LGPD_INTENTS:
+        for intent_id in self.lgpd_intents:
             engine.set_policy("intent_policy", intent_id, Policy(enforcement="block"))
 
     @staticmethod
@@ -81,7 +89,7 @@ class PersonService:
         trace_id = trace_id or str(uuid4())
         result = self.interceptor.intercept(
             execution_point=execution_point, tenant_id=person.tenant_id,
-            intent_ids=LGPD_INTENTS, executor=executor,
+            intent_ids=self.lgpd_intents, executor=executor,
             evaluator_resolver=self._evaluator_resolver(evidence),
             action_id=f"Person.{operation}", agent_id="LGPDComplianceAgent",
             operation_id=f"person:{operation}:{uuid4()}",
@@ -94,7 +102,7 @@ class PersonService:
                 "legal_basis_declared": bool(person.legal_basis),
                 "retention_declared": bool(person.retention_until),
             },
-            rule_versions={intent_id: "LGPD-2026-10" for intent_id in LGPD_INTENTS},
+            rule_versions={intent_id: f"definitions-{self.catalog.version}" for intent_id in self.lgpd_intents},
             trace_id=trace_id,
         )
         if not result.executed:
