@@ -135,23 +135,28 @@ class ComplianceEngine:
             "intent_policy": intent.id,
             "company_default": context.tenant_id,
         }
-        chosen: Policy | None = None
-        for level in PRECEDENCE:
-            key = keys[level]
-            if key is not None and key in self.policies.get(level, {}):
-                chosen = self.policies[level][key]
-                break
-
-        point_enabled = context.execution_point in intent.default_points
-        enabled = point_enabled
+        # Resolve each field independently: a narrow override changes only the
+        # fields it declares and inherits the remaining values from lower levels.
+        policies: list[Policy] = [
+            self.policies[level][key]
+            for level in PRECEDENCE
+            if (key := keys[level]) is not None and key in self.policies.get(level, {})
+        ]
+        enabled = context.execution_point in intent.default_points
         enforcement = str(self.defaults["enforcement"])
-        if chosen is not None:
-            if context.execution_point in chosen.execution:
-                enabled = chosen.execution[context.execution_point]
-            if chosen.enabled is not None:
-                enabled = chosen.enabled
-            if chosen.enforcement is not None:
-                enforcement = chosen.enforcement
+        point_override_found = False
+
+        for policy in policies:
+            if context.execution_point in policy.execution and not point_override_found:
+                enabled = policy.execution[context.execution_point]
+                point_override_found = True
+            if policy.enabled is not None:
+                enabled = policy.enabled
+                break
+        for policy in policies:
+            if policy.enforcement is not None:
+                enforcement = policy.enforcement
+                break
 
         # Mandatory means the check itself cannot be disabled by tenant policy.
         # Applicability is still evaluated separately; mandatory != universally applicable.
