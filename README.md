@@ -51,3 +51,23 @@ Para validar:
 python -m pip install -r requirements-dev.txt
 python -m pytest -q
 ```
+
+
+## Entidade Person e execução dos controles LGPD
+
+O módulo `compliance/person.py` fornece uma entidade `Person` e um `PersonService`
+de referência. Criação, leitura e exclusão passam pelo interceptor e avaliam os
+20 controles `PRIV-001` a `PRIV-020` nos pontos `on_ingress`, `before_egress`
+e `between_actions`. Evidência ausente ou inválida resulta em `indeterminate`
+e bloqueia a operação; o serviço não permite rebaixar esses controles para
+`warn` ou `audit_only`.
+
+`compliance/telemetry.py` fornece `JsonEvidenceSink`, que grava eventos JSON
+estruturados com `trace_id`, `operation_id`, Intent, resultado, versão da regra
+e referências de evidência. Nomes, telefone, e-mail e payloads pessoais não são
+incluídos nos logs. Veja [guia da entidade Person e evidências LGPD](docs/person-lgpd.md).
+
+Exemplo de validação: `python -m pytest -q`. O exemplo de evidências na documentação
+ilustra o contrato da API; em produção, cada referência deve apontar para evidência
+real produzida por avaliadores confiáveis e revisados. Isso instrumenta os controles
+do catálogo, mas não certifica por si só conformidade legal integral.
