@@ -60,6 +60,9 @@ agents:
   - FraudAndChargebackAgent
   - RefundAndCancellationAgent
   - FinancialRecordRetentionAgent
+  - HealthProfessionalReceiptAgent
+  - ReceiptAndProofOfPaymentAgent
+  - FiscalDocumentObligationAgent
   - EmploymentRelationshipRiskAgent
   - PayrollAndBenefitsAgent
   - eSocialAndLaborObligationsAgent
@@ -154,140 +157,153 @@ actions:
   - SendApprovedNotice
   - DeliverCustomerDisclosure
   - RecordCustomerAcceptance
+  - DetectMissingReceipt
+  - ResolveReceiptObligation
+  - PrepareReceiptData
+  - VerifyReceiptIssued
+  - LinkPaymentToReceipt
+  - AlertMissingReceipt
+  - GenerateAuthorizedReceipt
+  - VerifyFiscalDocumentRequirement
+  - RecordReceiptCorrection
 intents:
-  - {id: PRIV-001, name: LGPD, default_points: [on_ingress, before_egress, between_agents, between_actions]}
-  - {id: PRIV-002, name: DataMinimization}
-  - {id: PRIV-003, name: PurposeLimitation}
-  - {id: PRIV-004, name: LegalBasis}
-  - {id: PRIV-005, name: SensitiveData}
-  - {id: PRIV-006, name: ChildrenAndAdolescents, conditional: true}
-  - {id: PRIV-007, name: TransparencyNotice}
-  - {id: PRIV-008, name: ConsentValidity}
-  - {id: PRIV-009, name: DataSubjectRights}
-  - {id: PRIV-010, name: RetentionLimit}
-  - {id: PRIV-011, name: SecureDeletion}
-  - {id: PRIV-012, name: ProcessorContract}
-  - {id: PRIV-013, name: SharingAndTransfer}
-  - {id: PRIV-014, name: IncidentNotification}
-  - {id: PRIV-015, name: DPOApplicability}
-  - {id: PRIV-016, name: PrivacyByDesign}
-  - {id: PRIV-017, name: AutomatedDecision}
-  - {id: PRIV-018, name: DataAccuracy}
-  - {id: PRIV-019, name: AnonymizationClaim}
-  - {id: PRIV-020, name: CrossContextLeakage}
-  - {id: SEC-001, name: Authentication}
-  - {id: SEC-002, name: Authorization}
-  - {id: SEC-003, name: TenantIsolation}
-  - {id: SEC-004, name: SecretsExposure}
-  - {id: SEC-005, name: Encryption}
-  - {id: SEC-006, name: KeyLifecycle}
-  - {id: SEC-007, name: InputValidation}
-  - {id: SEC-008, name: OutputFiltering}
-  - {id: SEC-009, name: AuditIntegrity}
-  - {id: SEC-010, name: VulnerabilityStatus}
-  - {id: SEC-011, name: BackupRecoverability}
-  - {id: SEC-012, name: IncidentReadiness}
-  - {id: SEC-013, name: ThirdPartyAccess}
-  - {id: SEC-014, name: RateAbuseProtection}
-  - {id: SEC-015, name: DataExportAuthorization}
-  - {id: SEC-016, name: SecureConfiguration}
-  - {id: CORP-001, name: CNPJStatus}
-  - {id: CORP-002, name: LegalFormEligibility}
-  - {id: CORP-003, name: CNAECompatibility}
-  - {id: CORP-004, name: AddressAndJurisdiction}
-  - {id: CORP-005, name: PermitApplicability}
-  - {id: CORP-006, name: RegistrationConsistency}
-  - {id: CORP-007, name: CertificateValidity}
-  - {id: CORP-008, name: BusinessChangeReporting}
-  - {id: TAX-001, name: RegimeEligibility}
-  - {id: TAX-002, name: MEIEligibility}
-  - {id: TAX-003, name: RevenueThreshold}
-  - {id: TAX-004, name: RevenueClassification}
-  - {id: TAX-005, name: DASDueDate}
-  - {id: TAX-006, name: TaxCalculation}
-  - {id: TAX-007, name: WithholdingApplicability}
-  - {id: TAX-008, name: AnnualDeclaration}
-  - {id: TAX-009, name: SimplesObligations}
-  - {id: TAX-010, name: TaxRegimeTransition}
-  - {id: TAX-011, name: TaxEvidence}
-  - {id: TAX-012, name: TaxCalendar}
-  - {id: TAX-013, name: FiscalReconciliation}
-  - {id: TAX-014, name: TaxRecordRetention}
-  - {id: TAX-015, name: NoUnsupportedTaxAdvice}
-  - {id: FISC-001, name: InvoiceRequired}
-  - {id: FISC-002, name: InvoiceSchema}
-  - {id: FISC-003, name: InvoiceSequence}
-  - {id: FISC-004, name: InvoiceAuthorization}
-  - {id: FISC-005, name: InvoiceRecipient}
-  - {id: FISC-006, name: ServiceMunicipalRule}
-  - {id: FISC-007, name: ProductTaxRule}
-  - {id: FISC-008, name: CorrectionAndCancellation}
-  - {id: FISC-009, name: InvoiceOutboundDisclosure}
-  - {id: FISC-010, name: FiscalDocumentIntegrity}
-  - {id: FIN-001, name: PaymentAuthorization}
-  - {id: FIN-002, name: PixAndPaymentData}
-  - {id: FIN-003, name: Reconciliation}
-  - {id: FIN-004, name: RefundEligibility}
-  - {id: FIN-005, name: ChargebackEvidence}
-  - {id: FIN-006, name: FraudSignals}
-  - {id: FIN-007, name: CashFlowConsistency}
-  - {id: FIN-008, name: PaymentExport}
-  - {id: FIN-009, name: FinancialRecordRetention}
-  - {id: FIN-010, name: NoCredentialStorage}
-  - {id: LAB-001, name: EmploymentApplicability, conditional: true}
-  - {id: LAB-002, name: MEIEmployeeLimit, conditional: true}
-  - {id: LAB-003, name: PayrollAccuracy, conditional: true}
-  - {id: LAB-004, name: eSocialObligations, conditional: true}
-  - {id: LAB-005, name: FGTSAndSocialContributions, conditional: true}
-  - {id: LAB-006, name: WorkingTime, conditional: true}
-  - {id: LAB-007, name: LeaveAndTermination, conditional: true}
-  - {id: LAB-008, name: OccupationalSafety, conditional: true}
-  - {id: LAB-009, name: WorkerDataPrivacy, conditional: true}
-  - {id: LAB-010, name: ContractorMisclassification, conditional: true}
-  - {id: CONS-001, name: ConsumerDisclosure}
-  - {id: CONS-002, name: AdvertisingTruthfulness}
-  - {id: CONS-003, name: TotalPriceTransparency}
-  - {id: CONS-004, name: EcommerceInformation, conditional: true}
-  - {id: CONS-005, name: RightOfWithdrawal, conditional: true}
-  - {id: CONS-006, name: CancellationFlow}
-  - {id: CONS-007, name: WarrantyAndDefect}
-  - {id: CONS-008, name: ComplaintHandling}
-  - {id: CONS-009, name: DarkPatterns}
-  - {id: CONS-010, name: CustomerDataDisclosure}
-  - {id: CONS-011, name: TermsVersioning}
-  - {id: CONS-012, name: Accessibility, conditional: true}
-  - {id: CONT-001, name: ContractCompleteness}
-  - {id: CONT-002, name: ContractAuthority}
-  - {id: CONT-003, name: ContractVersion}
-  - {id: CONT-004, name: RenewalAndExpiry}
-  - {id: CONT-005, name: LiabilityAndWarranty}
-  - {id: CONT-006, name: Confidentiality}
-  - {id: CONT-007, name: IPOwnership}
-  - {id: CONT-008, name: ThirdPartyLicense}
-  - {id: CONT-009, name: ESignatureEvidence}
-  - {id: CONT-010, name: UnfairOrAmbiguousTerms}
-  - {id: OPS-001, name: ActivityLicense, conditional: true}
-  - {id: OPS-002, name: SanitaryPermit, conditional: true}
-  - {id: OPS-003, name: ProductTraceability, conditional: true}
-  - {id: OPS-004, name: ProductSafety, conditional: true}
-  - {id: OPS-005, name: EnvironmentalDuty, conditional: true}
-  - {id: OPS-006, name: WasteDestination, conditional: true}
-  - {id: OPS-007, name: ProfessionalLicense, conditional: true}
-  - {id: OPS-008, name: SectorRegulation, conditional: true}
-  - {id: OPS-009, name: PublicProcurement, conditional: true}
-  - {id: OPS-010, name: ImportExport, conditional: true}
-  - {id: OPS-011, name: RecallAndSafetyNotice, conditional: true}
-  - {id: OPS-012, name: LocalRuleApplicability, conditional: true}
-  - {id: GOV-001, name: RuleVersionCurrent}
-  - {id: GOV-002, name: EvidenceCompleteness}
-  - {id: GOV-003, name: DecisionTraceability}
-  - {id: GOV-004, name: PolicyCoverage}
-  - {id: GOV-005, name: ExceptionExpiry}
-  - {id: GOV-006, name: HumanReviewRequired}
-  - {id: GOV-007, name: RegulatoryChange}
-  - {id: GOV-008, name: DataLineage}
-  - {id: GOV-009, name: ControlConflict}
-  - {id: GOV-010, name: ComplianceStatusDisclosure}
+  - {id: PRIV-001, name: LGPD, default_points: [on_ingress, before_egress, between_agents, between_actions], mandatory: true, user_can_disable: false}
+  - {id: PRIV-002, name: DataMinimization, mandatory: true, user_can_disable: false}
+  - {id: PRIV-003, name: PurposeLimitation, mandatory: true, user_can_disable: false}
+  - {id: PRIV-004, name: LegalBasis, mandatory: true, user_can_disable: false}
+  - {id: PRIV-005, name: SensitiveData, mandatory: true, user_can_disable: false}
+  - {id: PRIV-006, name: ChildrenAndAdolescents, conditional: true, mandatory: true, user_can_disable: false}
+  - {id: PRIV-007, name: TransparencyNotice, mandatory: true, user_can_disable: false}
+  - {id: PRIV-008, name: ConsentValidity, mandatory: true, user_can_disable: false}
+  - {id: PRIV-009, name: DataSubjectRights, mandatory: true, user_can_disable: false}
+  - {id: PRIV-010, name: RetentionLimit, mandatory: true, user_can_disable: false}
+  - {id: PRIV-011, name: SecureDeletion, mandatory: true, user_can_disable: false}
+  - {id: PRIV-012, name: ProcessorContract, mandatory: true, user_can_disable: false}
+  - {id: PRIV-013, name: SharingAndTransfer, mandatory: true, user_can_disable: false}
+  - {id: PRIV-014, name: IncidentNotification, mandatory: true, user_can_disable: false}
+  - {id: PRIV-015, name: DPOApplicability, mandatory: true, user_can_disable: false}
+  - {id: PRIV-016, name: PrivacyByDesign, mandatory: true, user_can_disable: false}
+  - {id: PRIV-017, name: AutomatedDecision, mandatory: true, user_can_disable: false}
+  - {id: PRIV-018, name: DataAccuracy, mandatory: true, user_can_disable: false}
+  - {id: PRIV-019, name: AnonymizationClaim, mandatory: true, user_can_disable: false}
+  - {id: PRIV-020, name: CrossContextLeakage, mandatory: true, user_can_disable: false}
+  - {id: SEC-001, name: Authentication, mandatory: false, user_can_disable: true}
+  - {id: SEC-002, name: Authorization, mandatory: false, user_can_disable: true}
+  - {id: SEC-003, name: TenantIsolation, mandatory: false, user_can_disable: true}
+  - {id: SEC-004, name: SecretsExposure, mandatory: false, user_can_disable: true}
+  - {id: SEC-005, name: Encryption, mandatory: false, user_can_disable: true}
+  - {id: SEC-006, name: KeyLifecycle, mandatory: false, user_can_disable: true}
+  - {id: SEC-007, name: InputValidation, mandatory: false, user_can_disable: true}
+  - {id: SEC-008, name: OutputFiltering, mandatory: false, user_can_disable: true}
+  - {id: SEC-009, name: AuditIntegrity, mandatory: false, user_can_disable: true}
+  - {id: SEC-010, name: VulnerabilityStatus, mandatory: false, user_can_disable: true}
+  - {id: SEC-011, name: BackupRecoverability, mandatory: false, user_can_disable: true}
+  - {id: SEC-012, name: IncidentReadiness, mandatory: false, user_can_disable: true}
+  - {id: SEC-013, name: ThirdPartyAccess, mandatory: false, user_can_disable: true}
+  - {id: SEC-014, name: RateAbuseProtection, mandatory: false, user_can_disable: true}
+  - {id: SEC-015, name: DataExportAuthorization, mandatory: false, user_can_disable: true}
+  - {id: SEC-016, name: SecureConfiguration, mandatory: false, user_can_disable: true}
+  - {id: CORP-001, name: CNPJStatus, mandatory: false, user_can_disable: true}
+  - {id: CORP-002, name: LegalFormEligibility, mandatory: false, user_can_disable: true}
+  - {id: CORP-003, name: CNAECompatibility, mandatory: false, user_can_disable: true}
+  - {id: CORP-004, name: AddressAndJurisdiction, mandatory: false, user_can_disable: true}
+  - {id: CORP-005, name: PermitApplicability, mandatory: false, user_can_disable: true}
+  - {id: CORP-006, name: RegistrationConsistency, mandatory: false, user_can_disable: true}
+  - {id: CORP-007, name: CertificateValidity, mandatory: false, user_can_disable: true}
+  - {id: CORP-008, name: BusinessChangeReporting, mandatory: false, user_can_disable: true}
+  - {id: TAX-001, name: RegimeEligibility, mandatory: true, user_can_disable: false}
+  - {id: TAX-002, name: MEIEligibility, mandatory: true, user_can_disable: false}
+  - {id: TAX-003, name: RevenueThreshold, mandatory: true, user_can_disable: false}
+  - {id: TAX-004, name: RevenueClassification, mandatory: true, user_can_disable: false}
+  - {id: TAX-005, name: DASDueDate, mandatory: true, user_can_disable: false}
+  - {id: TAX-006, name: TaxCalculation, mandatory: true, user_can_disable: false}
+  - {id: TAX-007, name: WithholdingApplicability, mandatory: true, user_can_disable: false}
+  - {id: TAX-008, name: AnnualDeclaration, mandatory: true, user_can_disable: false}
+  - {id: TAX-009, name: SimplesObligations, mandatory: true, user_can_disable: false}
+  - {id: TAX-010, name: TaxRegimeTransition, mandatory: true, user_can_disable: false}
+  - {id: TAX-011, name: TaxEvidence, mandatory: true, user_can_disable: false}
+  - {id: TAX-012, name: TaxCalendar, mandatory: true, user_can_disable: false}
+  - {id: TAX-013, name: FiscalReconciliation, mandatory: true, user_can_disable: false}
+  - {id: TAX-014, name: TaxRecordRetention, mandatory: true, user_can_disable: false}
+  - {id: TAX-015, name: NoUnsupportedTaxAdvice, mandatory: true, user_can_disable: false}
+  - {id: TAX-016, name: TransactionRecordkeeping, default_points: [between_actions, scheduled], mandatory: true, user_can_disable: false}
+  - {id: FISC-001, name: InvoiceRequired, mandatory: true, user_can_disable: false}
+  - {id: FISC-002, name: InvoiceSchema, mandatory: true, user_can_disable: false}
+  - {id: FISC-003, name: InvoiceSequence, mandatory: true, user_can_disable: false}
+  - {id: FISC-004, name: InvoiceAuthorization, mandatory: true, user_can_disable: false}
+  - {id: FISC-005, name: InvoiceRecipient, mandatory: true, user_can_disable: false}
+  - {id: FISC-006, name: ServiceMunicipalRule, mandatory: true, user_can_disable: false}
+  - {id: FISC-007, name: ProductTaxRule, mandatory: true, user_can_disable: false}
+  - {id: FISC-008, name: CorrectionAndCancellation, mandatory: true, user_can_disable: false}
+  - {id: FISC-009, name: InvoiceOutboundDisclosure, mandatory: true, user_can_disable: false}
+  - {id: FISC-010, name: FiscalDocumentIntegrity, mandatory: true, user_can_disable: false}
+  - {id: FISC-011, name: HealthServiceReceiptObligation, conditional: true, default_points: [between_actions, on_state_change], mandatory: true, user_can_disable: false}
+  - {id: FISC-012, name: ReceiptOrFiscalDocumentEvidence, default_points: [between_actions, on_state_change], mandatory: true, user_can_disable: false}
+  - {id: FISC-013, name: ReceiptIssuanceAtPayment, conditional: true, default_points: [between_actions, on_state_change], mandatory: true, user_can_disable: false}
+  - {id: FIN-001, name: PaymentAuthorization, mandatory: false, user_can_disable: true}
+  - {id: FIN-002, name: PixAndPaymentData, mandatory: false, user_can_disable: true}
+  - {id: FIN-003, name: Reconciliation, mandatory: false, user_can_disable: true}
+  - {id: FIN-004, name: RefundEligibility, mandatory: false, user_can_disable: true}
+  - {id: FIN-005, name: ChargebackEvidence, mandatory: false, user_can_disable: true}
+  - {id: FIN-006, name: FraudSignals, mandatory: false, user_can_disable: true}
+  - {id: FIN-007, name: CashFlowConsistency, mandatory: false, user_can_disable: true}
+  - {id: FIN-008, name: PaymentExport, mandatory: false, user_can_disable: true}
+  - {id: FIN-009, name: FinancialRecordRetention, mandatory: false, user_can_disable: true}
+  - {id: FIN-010, name: NoCredentialStorage, mandatory: false, user_can_disable: true}
+  - {id: LAB-001, name: EmploymentApplicability, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: LAB-002, name: MEIEmployeeLimit, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: LAB-003, name: PayrollAccuracy, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: LAB-004, name: eSocialObligations, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: LAB-005, name: FGTSAndSocialContributions, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: LAB-006, name: WorkingTime, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: LAB-007, name: LeaveAndTermination, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: LAB-008, name: OccupationalSafety, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: LAB-009, name: WorkerDataPrivacy, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: LAB-010, name: ContractorMisclassification, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: CONS-001, name: ConsumerDisclosure, mandatory: false, user_can_disable: true}
+  - {id: CONS-002, name: AdvertisingTruthfulness, mandatory: false, user_can_disable: true}
+  - {id: CONS-003, name: TotalPriceTransparency, mandatory: false, user_can_disable: true}
+  - {id: CONS-004, name: EcommerceInformation, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: CONS-005, name: RightOfWithdrawal, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: CONS-006, name: CancellationFlow, mandatory: false, user_can_disable: true}
+  - {id: CONS-007, name: WarrantyAndDefect, mandatory: false, user_can_disable: true}
+  - {id: CONS-008, name: ComplaintHandling, mandatory: false, user_can_disable: true}
+  - {id: CONS-009, name: DarkPatterns, mandatory: false, user_can_disable: true}
+  - {id: CONS-010, name: CustomerDataDisclosure, mandatory: false, user_can_disable: true}
+  - {id: CONS-011, name: TermsVersioning, mandatory: false, user_can_disable: true}
+  - {id: CONS-012, name: Accessibility, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: CONT-001, name: ContractCompleteness, mandatory: false, user_can_disable: true}
+  - {id: CONT-002, name: ContractAuthority, mandatory: false, user_can_disable: true}
+  - {id: CONT-003, name: ContractVersion, mandatory: false, user_can_disable: true}
+  - {id: CONT-004, name: RenewalAndExpiry, mandatory: false, user_can_disable: true}
+  - {id: CONT-005, name: LiabilityAndWarranty, mandatory: false, user_can_disable: true}
+  - {id: CONT-006, name: Confidentiality, mandatory: false, user_can_disable: true}
+  - {id: CONT-007, name: IPOwnership, mandatory: false, user_can_disable: true}
+  - {id: CONT-008, name: ThirdPartyLicense, mandatory: false, user_can_disable: true}
+  - {id: CONT-009, name: ESignatureEvidence, mandatory: false, user_can_disable: true}
+  - {id: CONT-010, name: UnfairOrAmbiguousTerms, mandatory: false, user_can_disable: true}
+  - {id: OPS-001, name: ActivityLicense, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-002, name: SanitaryPermit, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-003, name: ProductTraceability, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-004, name: ProductSafety, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-005, name: EnvironmentalDuty, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-006, name: WasteDestination, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-007, name: ProfessionalLicense, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-008, name: SectorRegulation, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-009, name: PublicProcurement, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-010, name: ImportExport, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-011, name: RecallAndSafetyNotice, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: OPS-012, name: LocalRuleApplicability, conditional: true, mandatory: false, user_can_disable: true}
+  - {id: GOV-001, name: RuleVersionCurrent, mandatory: true, user_can_disable: false}
+  - {id: GOV-002, name: EvidenceCompleteness, mandatory: true, user_can_disable: false}
+  - {id: GOV-003, name: DecisionTraceability, mandatory: true, user_can_disable: false}
+  - {id: GOV-004, name: PolicyCoverage, mandatory: false, user_can_disable: true}
+  - {id: GOV-005, name: ExceptionExpiry, mandatory: true, user_can_disable: false}
+  - {id: GOV-006, name: HumanReviewRequired, mandatory: false, user_can_disable: true}
+  - {id: GOV-007, name: RegulatoryChange, mandatory: true, user_can_disable: false}
+  - {id: GOV-008, name: DataLineage, mandatory: false, user_can_disable: true}
+  - {id: GOV-009, name: ControlConflict, mandatory: true, user_can_disable: false}
+  - {id: GOV-010, name: ComplianceStatusDisclosure, mandatory: false, user_can_disable: true}
 legal_sources_to_register:
   - "Planalto — legislação federal consolidada"
   - "Receita Federal do Brasil"
@@ -298,6 +314,9 @@ legal_sources_to_register:
   - "SEFAZ da unidade federativa aplicável"
   - "Prefeitura e sistema fiscal municipal aplicável"
   - "Órgão regulador setorial competente"
+  - "Receita Federal — Receita Saúde / IN RFB nº 2.240/2024: https://normas.receita.fazenda.gov.br/sijut2consulta/normas.receisulta/link.action?idAto=142017&visao=compilado"
+  - "Receita Federal — Perguntas e Respostas Receita Saúde: https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/manuais/orientacao-tributaria/receita-saude-2.1.pdf/view"
+  - "ANPD — Resolução CD/ANPD nº 2/2022: https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd/resolucao-cd-anpd-no-2-de-27-de-janeiro-de-2022"
 production_gate:
   require_official_source: true
   require_effective_from: true
