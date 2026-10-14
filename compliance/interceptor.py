@@ -200,6 +200,7 @@ class ComplianceInterceptor:
                     action_id=action_id,
                     agent_id=agent_id,
                     reason=decision.reason,
+                    trace_id=trace_id,
                 ))
                 return InterceptionResult(False, True, findings=tuple(findings))
 
