@@ -19,7 +19,8 @@
     "actions",
     "intents",
     "legal_sources_to_register",
-    "production_gate"
+    "production_gate",
+    "definitions_file"
   ],
   "properties": {
     "version": {
@@ -315,6 +316,9 @@
           "const": true
         }
       }
+    },
+    "definitions_file": {
+      "const": "catalog/compliance-definitions.json"
     }
   }
 }
