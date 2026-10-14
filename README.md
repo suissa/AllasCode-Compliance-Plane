@@ -16,6 +16,8 @@ Catálogo e runtime de controles sistêmicos de conformidade para empresas brasi
 ## Catálogo
 - [Catálogo de Agents, Intents e Actions](docs/catalog/mei-me-brazil.md)
 - [Registro de políticas em YAML](catalog/compliance-registry.yaml)
+- [Definições tipadas de todos os Agents, Actions e Intents](catalog/compliance-definitions.json)
+- [Schema das definições tipadas](schemas/compliance-definitions.schema.json)
 
 O catálogo é um baseline amplo, não uma afirmação de que toda obrigação de todo setor foi exaustivamente coberta. Controles condicionais só são ativados após avaliação de aplicabilidade e validação da fonte oficial vigente.
 
@@ -37,7 +39,7 @@ O catálogo declarativo agora é acompanhado por um motor inicial de políticas 
 
 ## Runtime e Intents obrigatórios
 
-O módulo `compliance/runtime.py` implementa primitivas tipadas para carregar o manifest, resolver precedência de policies, avaliar aplicabilidade e produzir decisões auditáveis. A avaliação concreta de cada regra legal continua sendo fornecida por adaptadores/evaluators com evidências e fontes versionadas; o runtime não substitui uma interpretação jurídica nem integra automaticamente com Receita Federal, prefeitura ou sistemas de emissão.
+O arquivo `catalog/compliance-definitions.json` define individualmente os 64 Agents, 80 Actions e 137 Intents, com descrições, domínios, contratos, pontos de execução, responsáveis e vínculos entre Intents/Agents/Actions. O módulo `compliance/runtime.py` implementa primitivas tipadas para carregar o manifest, resolver precedência de policies, avaliar aplicabilidade e produzir decisões auditáveis. A avaliação concreta de cada regra legal continua sendo fornecida por adaptadores/evaluators com evidências e fontes versionadas; o runtime não substitui uma interpretação jurídica nem integra automaticamente com Receita Federal, prefeitura ou sistemas de emissão.
 
 Cada Intent expõe `mandatory` e `user_can_disable`. Quando `mandatory: true`, a tentativa de desativar o controle é ignorada pelo runtime e registrada na razão da decisão. Isso não presume aplicabilidade universal: o resultado ainda pode ser `not_applicable` após uma avaliação documentada, ou `indeterminate` se faltarem evidências.
 
