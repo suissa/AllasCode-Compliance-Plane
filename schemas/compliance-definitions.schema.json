@@ -1,0 +1,305 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/suissa/AllasCode-Compliance-Plane/blob/main/schemas/compliance-definitions.schema.json",
+  "title": "AllasCode Compliance Definitions",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "jurisdiction",
+    "purpose",
+    "agents",
+    "actions",
+    "intents"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "jurisdiction": {
+      "const": "BR"
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/agent"
+      }
+    },
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/action"
+      }
+    },
+    "intents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/intent"
+      }
+    }
+  },
+  "$defs": {
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "domain",
+        "description",
+        "responsibility",
+        "inputs",
+        "outputs",
+        "execution_points"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9]+Agent$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "responsibility": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "execution_points": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "on_ingress",
+              "before_egress",
+              "between_agents",
+              "between_actions",
+              "scheduled",
+              "on_state_change"
+            ]
+          }
+        }
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "domain",
+        "description",
+        "input_contract",
+        "output_contract",
+        "effect",
+        "idempotent",
+        "requires_human_approval",
+        "never_claim_success_without_confirmation"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Za-z0-9]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_contract": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "output_contract": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "effect": {
+          "enum": [
+            "stateful_or_external",
+            "validation_or_computation",
+            "evidence_or_transformation"
+          ]
+        },
+        "idempotent": {
+          "type": "boolean"
+        },
+        "requires_human_approval": {
+          "type": "boolean"
+        },
+        "never_claim_success_without_confirmation": {
+          "type": "boolean"
+        }
+      }
+    },
+    "intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "mandatory",
+        "user_can_disable",
+        "conditional",
+        "default_points",
+        "domain",
+        "description",
+        "owner_agent",
+        "actions",
+        "severity",
+        "unknown_result",
+        "requires_official_source"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z]{2,5}-\\d{3}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mandatory": {
+          "type": "boolean"
+        },
+        "user_can_disable": {
+          "type": "boolean"
+        },
+        "conditional": {
+          "type": "boolean"
+        },
+        "default_points": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "on_ingress",
+              "before_egress",
+              "between_agents",
+              "between_actions",
+              "scheduled",
+              "on_state_change"
+            ]
+          }
+        },
+        "domain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_agent": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9]+Agent$"
+        },
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "severity": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "unknown_result": {
+          "const": "indeterminate"
+        },
+        "requires_official_source": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mandatory": {
+                "const": true
+              }
+            },
+            "required": [
+              "mandatory"
+            ]
+          },
+          "then": {
+            "properties": {
+              "user_can_disable": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mandatory": {
+                "const": false
+              }
+            },
+            "required": [
+              "mandatory"
+            ]
+          },
+          "then": {
+            "properties": {
+              "user_can_disable": {
+                "const": true
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

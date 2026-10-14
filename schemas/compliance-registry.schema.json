@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/suissa/AllasCode-Compliance-Plane/blob/main/schemas/compliance-registry.schema.json",
+  "title": "AllasCode Compliance Registry",
+  "description": "Structural contract for the Brazilian MEI/ME compliance registry. Legal applicability must be verified independently.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "catalog",
+    "jurisdiction",
+    "scope",
+    "execution_points",
+    "result_states",
+    "enforcement_modes",
+    "precedence",
+    "defaults",
+    "agents",
+    "actions",
+    "intents",
+    "legal_sources_to_register",
+    "production_gate",
+    "definitions_file"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "catalog": {
+      "const": "allascode-compliance-plane"
+    },
+    "jurisdiction": {
+      "const": "BR"
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "company_profiles",
+        "note"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "company_profiles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "MEI",
+              "ME"
+            ]
+          }
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "execution_points": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "on_ingress",
+          "before_egress",
+          "between_agents",
+          "between_actions",
+          "scheduled",
+          "on_state_change"
+        ]
+      }
+    },
+    "result_states": {
+      "const": [
+        "compliant",
+        "non_compliant",
+        "indeterminate",
+        "not_applicable"
+      ]
+    },
+    "enforcement_modes": {
+      "const": [
+        "block",
+        "quarantine",
+        "warn",
+        "audit_only"
+      ]
+    },
+    "precedence": {
+      "const": [
+        "operation_override",
+        "action_policy",
+        "agent_policy",
+        "intent_policy",
+        "company_default"
+      ]
+    },
+    "defaults": {
+      "type": "object",
+      "required": [
+        "execution",
+        "enforcement",
+        "evidence_required",
+        "fail_closed_for",
+        "human_review_for"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "execution": {
+          "type": "object",
+          "required": [
+            "on_ingress",
+            "before_egress",
+            "between_agents",
+            "between_actions",
+            "scheduled",
+            "on_state_change"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "on_ingress": {
+              "type": "boolean"
+            },
+            "before_egress": {
+              "type": "boolean"
+            },
+            "between_agents": {
+              "type": "boolean"
+            },
+            "between_actions": {
+              "type": "boolean"
+            },
+            "scheduled": {
+              "type": "boolean"
+            },
+            "on_state_change": {
+              "type": "boolean"
+            }
+          }
+        },
+        "enforcement": {
+          "enum": [
+            "block",
+            "quarantine",
+            "warn",
+            "audit_only"
+          ]
+        },
+        "evidence_required": {
+          "type": "boolean"
+        },
+        "fail_closed_for": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "human_review_for": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "agents": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9]+Agent$"
+      }
+    },
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z][A-Za-z0-9]+$"
+      }
+    },
+    "intents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "mandatory",
+          "user_can_disable"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z]{2,5}-\\d{3}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "conditional": {
+            "type": "boolean"
+          },
+          "default_points": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "on_ingress",
+                "before_egress",
+                "between_agents",
+                "between_actions",
+                "scheduled",
+                "on_state_change"
+              ]
+            }
+          },
+          "mandatory": {
+            "type": "boolean"
+          },
+          "user_can_disable": {
+            "type": "boolean"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "mandatory": {
+                  "const": true
+                }
+              },
+              "required": [
+                "mandatory"
+              ]
+            },
+            "then": {
+              "properties": {
+                "user_can_disable": {
+                  "const": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mandatory": {
+                  "const": false
+                }
+              },
+              "required": [
+                "mandatory"
+              ]
+            },
+            "then": {
+              "properties": {
+                "user_can_disable": {
+                  "const": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "legal_sources_to_register": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "production_gate": {
+      "type": "object",
+      "required": [
+        "require_official_source",
+        "require_effective_from",
+        "require_last_reviewed_at",
+        "require_rule_owner",
+        "unknown_rule_result",
+        "never_assume_not_applicable"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "require_official_source": {
+          "const": true
+        },
+        "require_effective_from": {
+          "const": true
+        },
+        "require_last_reviewed_at": {
+          "const": true
+        },
+        "require_rule_owner": {
+          "const": true
+        },
+        "unknown_rule_result": {
+          "const": "indeterminate"
+        },
+        "never_assume_not_applicable": {
+          "const": true
+        }
+      }
+    },
+    "definitions_file": {
+      "const": "catalog/compliance-definitions.json"
+    }
+  }
+}
