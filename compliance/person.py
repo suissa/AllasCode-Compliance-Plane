@@ -84,7 +84,7 @@ class PersonService:
             intent_ids=LGPD_INTENTS, executor=executor,
             evaluator_resolver=self._evaluator_resolver(evidence),
             action_id=f"Person.{operation}", agent_id="LGPDComplianceAgent",
-            operation_id=f"person:{operation}:{person.person_id}",
+            operation_id=f"person:{operation}:{uuid4()}",
             operation_class="personal_data_export" if operation == "export" else None,
             entity_type="Person",
             # Only non-PII metadata enters evaluation context and telemetry.
