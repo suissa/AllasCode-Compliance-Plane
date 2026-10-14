@@ -33,3 +33,19 @@ python -m pytest -q
 O workflow `.github/workflows/validate-compliance-registry.yml` executa essa validação em pushes e pull requests. Os testes verificam o schema, unicidade de IDs/nomes, pontos de execução permitidos e invariantes de segurança: regras desconhecidas ficam `indeterminate`, controles críticos permanecem em `fail_closed_for`, e os metadados obrigatórios de fonte/vigência/revisão/responsável continuam exigidos.
 
 Este estágio valida o **catálogo declarativo**. Ainda não implementa um motor de execução, avaliador jurídico ou interceptores de runtime para Agents/Actions.
+
+
+## Runtime e Intents obrigatórios
+
+O módulo `compliance/runtime.py` implementa primitivas tipadas para carregar o manifest, resolver precedência de policies, avaliar aplicabilidade e produzir decisões auditáveis. A avaliação concreta de cada regra legal continua sendo fornecida por adaptadores/evaluators com evidências e fontes versionadas; o runtime não substitui uma interpretação jurídica nem integra automaticamente com Receita Federal, prefeitura ou sistemas de emissão.
+
+Cada Intent expõe `mandatory` e `user_can_disable`. Quando `mandatory: true`, a tentativa de desativar o controle é ignorada pelo runtime e registrada na razão da decisão. Isso não presume aplicabilidade universal: o resultado ainda pode ser `not_applicable` após uma avaliação documentada, ou `indeterminate` se faltarem evidências.
+
+O catálogo inclui controles específicos para omissão de recibos/documentos na saúde: `FISC-011`, `FISC-012` e `FISC-013`. O Receita Saúde é aplicável, conforme a regra oficial, a profissionais de saúde específicos atuando como pessoa física; clínicas/PJs precisam passar pela avaliação fiscal correspondente, sem generalizar indevidamente essa obrigação.
+
+Para validar:
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m pytest -q
+```
