@@ -1,0 +1,6406 @@
+{
+  "version": "1.0.0",
+  "jurisdiction": "BR",
+  "purpose": "Normative catalogue definitions for the MEI/ME compliance plane. Applicability and legal conclusions require versioned official sources.",
+  "agents": [
+    {
+      "id": "ComplianceOrchestratorAgent",
+      "name": "ComplianceOrchestratorAgent",
+      "domain": "governance",
+      "description": "Responsável pelo domínio Compliance Orchestrator.",
+      "responsibility": "Orquestrar regras, aplicabilidade, evidências, políticas, exceções e auditoria.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "LegalRuleRegistryAgent",
+      "name": "LegalRuleRegistryAgent",
+      "domain": "governance",
+      "description": "Responsável pelo domínio Legal Rule Registry.",
+      "responsibility": "Orquestrar regras, aplicabilidade, evidências, políticas, exceções e auditoria.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ApplicabilityAssessmentAgent",
+      "name": "ApplicabilityAssessmentAgent",
+      "domain": "governance",
+      "description": "Responsável pelo domínio Applicability Assessment.",
+      "responsibility": "Orquestrar regras, aplicabilidade, evidências, políticas, exceções e auditoria.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ComplianceEvidenceAgent",
+      "name": "ComplianceEvidenceAgent",
+      "domain": "governance",
+      "description": "Responsável pelo domínio Compliance Evidence.",
+      "responsibility": "Orquestrar regras, aplicabilidade, evidências, políticas, exceções e auditoria.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ExceptionAndHumanReviewAgent",
+      "name": "ExceptionAndHumanReviewAgent",
+      "domain": "governance",
+      "description": "Responsável pelo domínio Exception And Human Review.",
+      "responsibility": "Orquestrar regras, aplicabilidade, evidências, políticas, exceções e auditoria.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ComplianceMonitoringAgent",
+      "name": "ComplianceMonitoringAgent",
+      "domain": "governance",
+      "description": "Responsável pelo domínio Compliance Monitoring.",
+      "responsibility": "Orquestrar regras, aplicabilidade, evidências, políticas, exceções e auditoria.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "PolicyConfigurationAgent",
+      "name": "PolicyConfigurationAgent",
+      "domain": "governance",
+      "description": "Responsável pelo domínio Policy Configuration.",
+      "responsibility": "Orquestrar regras, aplicabilidade, evidências, políticas, exceções e auditoria.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "AuditTrailAgent",
+      "name": "AuditTrailAgent",
+      "domain": "governance",
+      "description": "Responsável pelo domínio Audit Trail.",
+      "responsibility": "Orquestrar regras, aplicabilidade, evidências, políticas, exceções e auditoria.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "LGPDComplianceAgent",
+      "name": "LGPDComplianceAgent",
+      "domain": "privacy_lgpd",
+      "description": "Responsável pelo domínio LGPDCompliance.",
+      "responsibility": "Avaliar e coordenar controles de privacidade, direitos dos titulares e tratamento lícito de dados pessoais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "DataInventoryAndMappingAgent",
+      "name": "DataInventoryAndMappingAgent",
+      "domain": "privacy_lgpd",
+      "description": "Responsável pelo domínio Data Inventory And Mapping.",
+      "responsibility": "Avaliar e coordenar controles de privacidade, direitos dos titulares e tratamento lícito de dados pessoais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "DataSubjectRightsAgent",
+      "name": "DataSubjectRightsAgent",
+      "domain": "privacy_lgpd",
+      "description": "Responsável pelo domínio Data Subject Rights.",
+      "responsibility": "Avaliar e coordenar controles de privacidade, direitos dos titulares e tratamento lícito de dados pessoais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ConsentAndLegalBasisAgent",
+      "name": "ConsentAndLegalBasisAgent",
+      "domain": "privacy_lgpd",
+      "description": "Responsável pelo domínio Consent And Legal Basis.",
+      "responsibility": "Avaliar e coordenar controles de privacidade, direitos dos titulares e tratamento lícito de dados pessoais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "RetentionAndDeletionAgent",
+      "name": "RetentionAndDeletionAgent",
+      "domain": "privacy_lgpd",
+      "description": "Responsável pelo domínio Retention And Deletion.",
+      "responsibility": "Avaliar e coordenar controles de privacidade, direitos dos titulares e tratamento lícito de dados pessoais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "DataSharingAndTransferAgent",
+      "name": "DataSharingAndTransferAgent",
+      "domain": "privacy_lgpd",
+      "description": "Responsável pelo domínio Data Sharing And Transfer.",
+      "responsibility": "Avaliar e coordenar controles de privacidade, direitos dos titulares e tratamento lícito de dados pessoais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "PrivacyIncidentAgent",
+      "name": "PrivacyIncidentAgent",
+      "domain": "privacy_lgpd",
+      "description": "Responsável pelo domínio Privacy Incident.",
+      "responsibility": "Avaliar e coordenar controles de privacidade, direitos dos titulares e tratamento lícito de dados pessoais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "DPOApplicabilityAgent",
+      "name": "DPOApplicabilityAgent",
+      "domain": "privacy_lgpd",
+      "description": "Responsável pelo domínio DPOApplicability.",
+      "responsibility": "Avaliar e coordenar controles de privacidade, direitos dos titulares e tratamento lícito de dados pessoais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "IdentityAndAccessComplianceAgent",
+      "name": "IdentityAndAccessComplianceAgent",
+      "domain": "information_security",
+      "description": "Responsável pelo domínio Identity And Access Compliance.",
+      "responsibility": "Verificar identidade, acesso, proteção de segredos, segurança técnica e resposta a incidentes.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "SecretsAndCredentialAgent",
+      "name": "SecretsAndCredentialAgent",
+      "domain": "information_security",
+      "description": "Responsável pelo domínio Secrets And Credential.",
+      "responsibility": "Verificar identidade, acesso, proteção de segredos, segurança técnica e resposta a incidentes.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "EncryptionAndKeyManagementAgent",
+      "name": "EncryptionAndKeyManagementAgent",
+      "domain": "information_security",
+      "description": "Responsável pelo domínio Encryption And Key Management.",
+      "responsibility": "Verificar identidade, acesso, proteção de segredos, segurança técnica e resposta a incidentes.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "SecurityLoggingAgent",
+      "name": "SecurityLoggingAgent",
+      "domain": "information_security",
+      "description": "Responsável pelo domínio Security Logging.",
+      "responsibility": "Verificar identidade, acesso, proteção de segredos, segurança técnica e resposta a incidentes.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "VulnerabilityAndPatchAgent",
+      "name": "VulnerabilityAndPatchAgent",
+      "domain": "information_security",
+      "description": "Responsável pelo domínio Vulnerability And Patch.",
+      "responsibility": "Verificar identidade, acesso, proteção de segredos, segurança técnica e resposta a incidentes.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "BackupAndRecoveryAgent",
+      "name": "BackupAndRecoveryAgent",
+      "domain": "information_security",
+      "description": "Responsável pelo domínio Backup And Recovery.",
+      "responsibility": "Verificar identidade, acesso, proteção de segredos, segurança técnica e resposta a incidentes.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "IncidentResponseAgent",
+      "name": "IncidentResponseAgent",
+      "domain": "information_security",
+      "description": "Responsável pelo domínio Incident Response.",
+      "responsibility": "Verificar identidade, acesso, proteção de segredos, segurança técnica e resposta a incidentes.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ThirdPartySecurityAgent",
+      "name": "ThirdPartySecurityAgent",
+      "domain": "information_security",
+      "description": "Responsável pelo domínio Third Party Security.",
+      "responsibility": "Verificar identidade, acesso, proteção de segredos, segurança técnica e resposta a incidentes.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "BusinessRegistrationAgent",
+      "name": "BusinessRegistrationAgent",
+      "domain": "business_registration",
+      "description": "Responsável pelo domínio Business Registration.",
+      "responsibility": "Verificar cadastro empresarial, atividade econômica e licenças relacionadas.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "CNAEAndPermitAgent",
+      "name": "CNAEAndPermitAgent",
+      "domain": "business_registration",
+      "description": "Responsável pelo domínio CNAEAnd Permit.",
+      "responsibility": "Verificar cadastro empresarial, atividade econômica e licenças relacionadas.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "TaxRegimeApplicabilityAgent",
+      "name": "TaxRegimeApplicabilityAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio Tax Regime Applicability.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "DASAndTaxCalendarAgent",
+      "name": "DASAndTaxCalendarAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio DASAnd Tax Calendar.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "RevenueThresholdAndEligibilityAgent",
+      "name": "RevenueThresholdAndEligibilityAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio Revenue Threshold And Eligibility.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "InvoiceAndFiscalDocumentAgent",
+      "name": "InvoiceAndFiscalDocumentAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio Invoice And Fiscal Document.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "TaxWithholdingAgent",
+      "name": "TaxWithholdingAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio Tax Withholding.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "BookkeepingAndReconciliationAgent",
+      "name": "BookkeepingAndReconciliationAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio Bookkeeping And Reconciliation.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "AnnualDeclarationsAgent",
+      "name": "AnnualDeclarationsAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio Annual Declarations.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "MunicipalAndStateObligationsAgent",
+      "name": "MunicipalAndStateObligationsAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio Municipal And State Obligations.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "PaymentComplianceAgent",
+      "name": "PaymentComplianceAgent",
+      "domain": "finance_payments",
+      "description": "Responsável pelo domínio Payment Compliance.",
+      "responsibility": "Verificar pagamentos, conciliação, reembolsos, prevenção a fraude e retenção financeira.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "CashFlowAndReconciliationAgent",
+      "name": "CashFlowAndReconciliationAgent",
+      "domain": "finance_payments",
+      "description": "Responsável pelo domínio Cash Flow And Reconciliation.",
+      "responsibility": "Verificar pagamentos, conciliação, reembolsos, prevenção a fraude e retenção financeira.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "FraudAndChargebackAgent",
+      "name": "FraudAndChargebackAgent",
+      "domain": "finance_payments",
+      "description": "Responsável pelo domínio Fraud And Chargeback.",
+      "responsibility": "Verificar pagamentos, conciliação, reembolsos, prevenção a fraude e retenção financeira.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "RefundAndCancellationAgent",
+      "name": "RefundAndCancellationAgent",
+      "domain": "finance_payments",
+      "description": "Responsável pelo domínio Refund And Cancellation.",
+      "responsibility": "Verificar pagamentos, conciliação, reembolsos, prevenção a fraude e retenção financeira.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "FinancialRecordRetentionAgent",
+      "name": "FinancialRecordRetentionAgent",
+      "domain": "privacy_lgpd",
+      "description": "Responsável pelo domínio Financial Record Retention.",
+      "responsibility": "Avaliar e coordenar controles de privacidade, direitos dos titulares e tratamento lícito de dados pessoais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "HealthProfessionalReceiptAgent",
+      "name": "HealthProfessionalReceiptAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio Health Professional Receipt.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ReceiptAndProofOfPaymentAgent",
+      "name": "ReceiptAndProofOfPaymentAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio Receipt And Proof Of Payment.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "FiscalDocumentObligationAgent",
+      "name": "FiscalDocumentObligationAgent",
+      "domain": "tax_fiscal",
+      "description": "Responsável pelo domínio Fiscal Document Obligation.",
+      "responsibility": "Verificar obrigações tributárias/fiscais aplicáveis, documentos, prazos e evidências oficiais.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "EmploymentRelationshipRiskAgent",
+      "name": "EmploymentRelationshipRiskAgent",
+      "domain": "labor",
+      "description": "Responsável pelo domínio Employment Relationship Risk.",
+      "responsibility": "Avaliar obrigações trabalhistas e previdenciárias quando houver vínculo ou fato gerador aplicável.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "PayrollAndBenefitsAgent",
+      "name": "PayrollAndBenefitsAgent",
+      "domain": "labor",
+      "description": "Responsável pelo domínio Payroll And Benefits.",
+      "responsibility": "Avaliar obrigações trabalhistas e previdenciárias quando houver vínculo ou fato gerador aplicável.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "eSocialAndLaborObligationsAgent",
+      "name": "eSocialAndLaborObligationsAgent",
+      "domain": "labor",
+      "description": "Responsável pelo domínio e Social And Labor Obligations.",
+      "responsibility": "Avaliar obrigações trabalhistas e previdenciárias quando houver vínculo ou fato gerador aplicável.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "OccupationalHealthAndSafetyAgent",
+      "name": "OccupationalHealthAndSafetyAgent",
+      "domain": "labor",
+      "description": "Responsável pelo domínio Occupational Health And Safety.",
+      "responsibility": "Avaliar obrigações trabalhistas e previdenciárias quando houver vínculo ou fato gerador aplicável.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "WorkingTimeAndLeaveAgent",
+      "name": "WorkingTimeAndLeaveAgent",
+      "domain": "labor",
+      "description": "Responsável pelo domínio Working Time And Leave.",
+      "responsibility": "Avaliar obrigações trabalhistas e previdenciárias quando houver vínculo ou fato gerador aplicável.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ContractorClassificationAgent",
+      "name": "ContractorClassificationAgent",
+      "domain": "labor",
+      "description": "Responsável pelo domínio Contractor Classification.",
+      "responsibility": "Avaliar obrigações trabalhistas e previdenciárias quando houver vínculo ou fato gerador aplicável.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ConsumerRightsAgent",
+      "name": "ConsumerRightsAgent",
+      "domain": "consumer_contracts",
+      "description": "Responsável pelo domínio Consumer Rights.",
+      "responsibility": "Verificar transparência comercial, direitos do consumidor, contratos e propriedade intelectual.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "OfferAndAdvertisingAgent",
+      "name": "OfferAndAdvertisingAgent",
+      "domain": "consumer_contracts",
+      "description": "Responsável pelo domínio Offer And Advertising.",
+      "responsibility": "Verificar transparência comercial, direitos do consumidor, contratos e propriedade intelectual.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ContractAndTermsAgent",
+      "name": "ContractAndTermsAgent",
+      "domain": "consumer_contracts",
+      "description": "Responsável pelo domínio Contract And Terms.",
+      "responsibility": "Verificar transparência comercial, direitos do consumidor, contratos e propriedade intelectual.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "CancellationAndWarrantyAgent",
+      "name": "CancellationAndWarrantyAgent",
+      "domain": "consumer_contracts",
+      "description": "Responsável pelo domínio Cancellation And Warranty.",
+      "responsibility": "Verificar transparência comercial, direitos do consumidor, contratos e propriedade intelectual.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "CustomerSupportAndComplaintAgent",
+      "name": "CustomerSupportAndComplaintAgent",
+      "domain": "consumer_contracts",
+      "description": "Responsável pelo domínio Customer Support And Complaint.",
+      "responsibility": "Verificar transparência comercial, direitos do consumidor, contratos e propriedade intelectual.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "EcommerceDisclosureAgent",
+      "name": "EcommerceDisclosureAgent",
+      "domain": "consumer_contracts",
+      "description": "Responsável pelo domínio Ecommerce Disclosure.",
+      "responsibility": "Verificar transparência comercial, direitos do consumidor, contratos e propriedade intelectual.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "IntellectualPropertyAgent",
+      "name": "IntellectualPropertyAgent",
+      "domain": "consumer_contracts",
+      "description": "Responsável pelo domínio Intellectual Property.",
+      "responsibility": "Verificar transparência comercial, direitos do consumidor, contratos e propriedade intelectual.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "EnvironmentalAndWasteAgent",
+      "name": "EnvironmentalAndWasteAgent",
+      "domain": "sectoral_operations",
+      "description": "Responsável pelo domínio Environmental And Waste.",
+      "responsibility": "Avaliar licenças e obrigações setoriais conforme atividade e jurisdição.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ProductSafetyAndTraceabilityAgent",
+      "name": "ProductSafetyAndTraceabilityAgent",
+      "domain": "sectoral_operations",
+      "description": "Responsável pelo domínio Product Safety And Traceability.",
+      "responsibility": "Avaliar licenças e obrigações setoriais conforme atividade e jurisdição.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "HealthAndSanitaryPermitAgent",
+      "name": "HealthAndSanitaryPermitAgent",
+      "domain": "sectoral_operations",
+      "description": "Responsável pelo domínio Health And Sanitary Permit.",
+      "responsibility": "Avaliar licenças e obrigações setoriais conforme atividade e jurisdição.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "FoodHandlingAndTraceabilityAgent",
+      "name": "FoodHandlingAndTraceabilityAgent",
+      "domain": "sectoral_operations",
+      "description": "Responsável pelo domínio Food Handling And Traceability.",
+      "responsibility": "Avaliar licenças e obrigações setoriais conforme atividade e jurisdição.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "TransportAndMobilityComplianceAgent",
+      "name": "TransportAndMobilityComplianceAgent",
+      "domain": "sectoral_operations",
+      "description": "Responsável pelo domínio Transport And Mobility Compliance.",
+      "responsibility": "Avaliar licenças e obrigações setoriais conforme atividade e jurisdição.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "FinancialServicesApplicabilityAgent",
+      "name": "FinancialServicesApplicabilityAgent",
+      "domain": "sectoral_operations",
+      "description": "Responsável pelo domínio Financial Services Applicability.",
+      "responsibility": "Avaliar licenças e obrigações setoriais conforme atividade e jurisdição.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "ProfessionalLicensingAgent",
+      "name": "ProfessionalLicensingAgent",
+      "domain": "sectoral_operations",
+      "description": "Responsável pelo domínio Professional Licensing.",
+      "responsibility": "Avaliar licenças e obrigações setoriais conforme atividade e jurisdição.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "PublicProcurementAgent",
+      "name": "PublicProcurementAgent",
+      "domain": "sectoral_operations",
+      "description": "Responsável pelo domínio Public Procurement.",
+      "responsibility": "Avaliar licenças e obrigações setoriais conforme atividade e jurisdição.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    },
+    {
+      "id": "AccessibilityAndDigitalServiceAgent",
+      "name": "AccessibilityAndDigitalServiceAgent",
+      "domain": "sectoral_operations",
+      "description": "Responsável pelo domínio Accessibility And Digital Service.",
+      "responsibility": "Avaliar licenças e obrigações setoriais conforme atividade e jurisdição.",
+      "inputs": [
+        "company_profile",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "outputs": [
+        "compliance_decisions",
+        "evidence_refs",
+        "open_findings"
+      ],
+      "execution_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "ValidateSchema",
+      "name": "Validate Schema",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica validate schema dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "NormalizeInput",
+      "name": "Normalize Input",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica normalize input dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ClassifyData",
+      "name": "Classify Data",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica classify data dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "DetectPersonalData",
+      "name": "Detect Personal Data",
+      "domain": "privacy_lgpd",
+      "description": "Executa a operação atômica detect personal data dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "DetectSensitiveData",
+      "name": "Detect Sensitive Data",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica detect sensitive data dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ResolveEntity",
+      "name": "Resolve Entity",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica resolve entity dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ResolveJurisdiction",
+      "name": "Resolve Jurisdiction",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica resolve jurisdiction dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "AssessApplicability",
+      "name": "Assess Applicability",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica assess applicability dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ValidateLegalBasis",
+      "name": "Validate Legal Basis",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica validate legal basis dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ValidateRuleVersion",
+      "name": "Validate Rule Version",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica validate rule version dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ValidateDocument",
+      "name": "Validate Document",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica validate document dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ValidateSignature",
+      "name": "Validate Signature",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica validate signature dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ValidateTotals",
+      "name": "Validate Totals",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica validate totals dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "DetectDuplicate",
+      "name": "Detect Duplicate",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica detect duplicate dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "CompareRecords",
+      "name": "Compare Records",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica compare records dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "MinimizePayload",
+      "name": "Minimize Payload",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica minimize payload dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "RedactPersonalData",
+      "name": "Redact Personal Data",
+      "domain": "privacy_lgpd",
+      "description": "Executa a operação atômica redact personal data dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "RedactSecrets",
+      "name": "Redact Secrets",
+      "domain": "information_security",
+      "description": "Executa a operação atômica redact secrets dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "EncryptPayload",
+      "name": "Encrypt Payload",
+      "domain": "information_security",
+      "description": "Executa a operação atômica encrypt payload dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "DecryptAuthorizedPayload",
+      "name": "Decrypt Authorized Payload",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica decrypt authorized payload dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "TokenizeIdentifier",
+      "name": "Tokenize Identifier",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica tokenize identifier dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "EnforceTenantBoundary",
+      "name": "Enforce Tenant Boundary",
+      "domain": "information_security",
+      "description": "Executa a operação atômica enforce tenant boundary dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "CheckAuthorization",
+      "name": "Check Authorization",
+      "domain": "information_security",
+      "description": "Executa a operação atômica check authorization dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "CheckPurpose",
+      "name": "Check Purpose",
+      "domain": "privacy_lgpd",
+      "description": "Executa a operação atômica check purpose dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "CheckRetention",
+      "name": "Check Retention",
+      "domain": "privacy_lgpd",
+      "description": "Executa a operação atômica check retention dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "DeleteEligibleData",
+      "name": "Delete Eligible Data",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica delete eligible data dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": false,
+      "requires_human_approval": true,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "RestrictAccess",
+      "name": "Restrict Access",
+      "domain": "information_security",
+      "description": "Executa a operação atômica restrict access dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "RotateCredential",
+      "name": "Rotate Credential",
+      "domain": "information_security",
+      "description": "Executa a operação atômica rotate credential dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": false,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "RevokeCredential",
+      "name": "Revoke Credential",
+      "domain": "information_security",
+      "description": "Executa a operação atômica revoke credential dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": false,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "EvaluateIntent",
+      "name": "Evaluate Intent",
+      "domain": "policy_enforcement",
+      "description": "Executa a operação atômica evaluate intent dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "EvaluatePolicy",
+      "name": "Evaluate Policy",
+      "domain": "policy_enforcement",
+      "description": "Executa a operação atômica evaluate policy dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "BlockOperation",
+      "name": "Block Operation",
+      "domain": "policy_enforcement",
+      "description": "Executa a operação atômica block operation dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "QuarantinePayload",
+      "name": "Quarantine Payload",
+      "domain": "policy_enforcement",
+      "description": "Executa a operação atômica quarantine payload dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "WarnOperator",
+      "name": "Warn Operator",
+      "domain": "policy_enforcement",
+      "description": "Executa a operação atômica warn operator dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "RequireHumanReview",
+      "name": "Require Human Review",
+      "domain": "policy_enforcement",
+      "description": "Executa a operação atômica require human review dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "RequestMissingEvidence",
+      "name": "Request Missing Evidence",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica request missing evidence dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ApplyApprovedException",
+      "name": "Apply Approved Exception",
+      "domain": "policy_enforcement",
+      "description": "Executa a operação atômica apply approved exception dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": true,
+      "requires_human_approval": true,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "RevalidateAfterMutation",
+      "name": "Revalidate After Mutation",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica revalidate after mutation dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "FailClosed",
+      "name": "Fail Closed",
+      "domain": "policy_enforcement",
+      "description": "Executa a operação atômica fail closed dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "FailOpenWithAudit",
+      "name": "Fail Open With Audit",
+      "domain": "policy_enforcement",
+      "description": "Executa a operação atômica fail open with audit dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "CreateEvidenceRecord",
+      "name": "Create Evidence Record",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica create evidence record dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "HashArtifact",
+      "name": "Hash Artifact",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica hash artifact dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "AppendAuditEvent",
+      "name": "Append Audit Event",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica append audit event dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "RecordRuleVersion",
+      "name": "Record Rule Version",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica record rule version dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "RecordDecision",
+      "name": "Record Decision",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica record decision dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "MonitorDeadline",
+      "name": "Monitor Deadline",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica monitor deadline dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ScheduleRecheck",
+      "name": "Schedule Recheck",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica schedule recheck dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "DetectRegulatoryChange",
+      "name": "Detect Regulatory Change",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica detect regulatory change dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "OpenComplianceCase",
+      "name": "Open Compliance Case",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica open compliance case dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "CloseComplianceCase",
+      "name": "Close Compliance Case",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica close compliance case dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": true,
+      "requires_human_approval": true,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "ExportAuditBundle",
+      "name": "Export Audit Bundle",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica export audit bundle dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "VerifyEvidenceIntegrity",
+      "name": "Verify Evidence Integrity",
+      "domain": "evidence_audit",
+      "description": "Executa a operação atômica verify evidence integrity dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "CalculateTax",
+      "name": "Calculate Tax",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica calculate tax dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ReconcileRevenue",
+      "name": "Reconcile Revenue",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica reconcile revenue dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "CheckRevenueThreshold",
+      "name": "Check Revenue Threshold",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica check revenue threshold dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "GenerateDueDateAlert",
+      "name": "Generate Due Date Alert",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica generate due date alert dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ValidateInvoice",
+      "name": "Validate Invoice",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica validate invoice dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "CheckInvoiceAuthorization",
+      "name": "Check Invoice Authorization",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica check invoice authorization dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ReconcilePayment",
+      "name": "Reconcile Payment",
+      "domain": "finance_payments",
+      "description": "Executa a operação atômica reconcile payment dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ValidateRefund",
+      "name": "Validate Refund",
+      "domain": "finance_payments",
+      "description": "Executa a operação atômica validate refund dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ValidatePayroll",
+      "name": "Validate Payroll",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica validate payroll dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ValidateDeclarationReadiness",
+      "name": "Validate Declaration Readiness",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica validate declaration readiness dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "GenerateComplianceReport",
+      "name": "Generate Compliance Report",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica generate compliance report dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "GeneratePrivacyNotice",
+      "name": "Generate Privacy Notice",
+      "domain": "privacy_lgpd",
+      "description": "Executa a operação atômica generate privacy notice dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "AcknowledgeDataSubjectRequest",
+      "name": "Acknowledge Data Subject Request",
+      "domain": "privacy_lgpd",
+      "description": "Executa a operação atômica acknowledge data subject request dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "RouteDataSubjectRequest",
+      "name": "Route Data Subject Request",
+      "domain": "privacy_lgpd",
+      "description": "Executa a operação atômica route data subject request dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "NotifyIncidentOwner",
+      "name": "Notify Incident Owner",
+      "domain": "information_security",
+      "description": "Executa a operação atômica notify incident owner dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "PrepareRegulatoryNotificationDraft",
+      "name": "Prepare Regulatory Notification Draft",
+      "domain": "data_validation",
+      "description": "Executa a operação atômica prepare regulatory notification draft dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": true,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "SendApprovedNotice",
+      "name": "Send Approved Notice",
+      "domain": "privacy_lgpd",
+      "description": "Executa a operação atômica send approved notice dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": false,
+      "requires_human_approval": true,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "DeliverCustomerDisclosure",
+      "name": "Deliver Customer Disclosure",
+      "domain": "communications",
+      "description": "Executa a operação atômica deliver customer disclosure dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "RecordCustomerAcceptance",
+      "name": "Record Customer Acceptance",
+      "domain": "communications",
+      "description": "Executa a operação atômica record customer acceptance dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": false,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "DetectMissingReceipt",
+      "name": "Detect Missing Receipt",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica detect missing receipt dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "ResolveReceiptObligation",
+      "name": "Resolve Receipt Obligation",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica resolve receipt obligation dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "PrepareReceiptData",
+      "name": "Prepare Receipt Data",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica prepare receipt data dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "VerifyReceiptIssued",
+      "name": "Verify Receipt Issued",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica verify receipt issued dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "LinkPaymentToReceipt",
+      "name": "Link Payment To Receipt",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica link payment to receipt dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "AlertMissingReceipt",
+      "name": "Alert Missing Receipt",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica alert missing receipt dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "GenerateAuthorizedReceipt",
+      "name": "Generate Authorized Receipt",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica generate authorized receipt dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "stateful_or_external",
+      "idempotent": false,
+      "requires_human_approval": true,
+      "never_claim_success_without_confirmation": true
+    },
+    {
+      "id": "VerifyFiscalDocumentRequirement",
+      "name": "Verify Fiscal Document Requirement",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica verify fiscal document requirement dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "validation_or_computation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    },
+    {
+      "id": "RecordReceiptCorrection",
+      "name": "Record Receipt Correction",
+      "domain": "tax_fiscal",
+      "description": "Executa a operação atômica record receipt correction dentro de políticas e limites de autorização.",
+      "input_contract": [
+        "tenant_id",
+        "operation_context",
+        "evidence_refs"
+      ],
+      "output_contract": [
+        "result",
+        "evidence_refs",
+        "audit_event"
+      ],
+      "effect": "evidence_or_transformation",
+      "idempotent": true,
+      "requires_human_approval": false,
+      "never_claim_success_without_confirmation": false
+    }
+  ],
+  "intents": [
+    {
+      "id": "PRIV-001",
+      "name": "LGPD",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar se coleta, uso, armazenamento, compartilhamento e descarte de dados pessoais têm finalidade, base legal e transparência adequadas",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-002",
+      "name": "DataMinimization",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar necessidade e proporcionalidade dos campos coletados",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-003",
+      "name": "PurposeLimitation",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "impedir uso incompatível com a finalidade documentada",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-004",
+      "name": "LegalBasis",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar base legal por finalidade e categoria de dado",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-005",
+      "name": "SensitiveData",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "identificar dados pessoais sensíveis e exigir salvaguardas reforçadas",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-006",
+      "name": "ChildrenAndAdolescents",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": true,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "aplicar controles específicos quando houver dados de crianças/adolescentes",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-007",
+      "name": "TransparencyNotice",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar aviso de privacidade e informação ao titular",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-008",
+      "name": "ConsentValidity",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar consentimento quando essa for a base utilizada; não presumir consentimento como base universal",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-009",
+      "name": "DataSubjectRights",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "validar fluxo de confirmação, acesso, correção, anonimização, bloqueio, eliminação e demais direitos aplicáveis",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-010",
+      "name": "RetentionLimit",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar prazo e fundamento de retenção, incluindo obrigações legais de guarda",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-011",
+      "name": "SecureDeletion",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar descarte seguro e propagação a cópias/operadores quando cabível",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-012",
+      "name": "ProcessorContract",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar instruções, responsabilidades e cláusulas com operadores",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-013",
+      "name": "SharingAndTransfer",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar compartilhamento, destinatários e transferência internacional quando houver",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-014",
+      "name": "IncidentNotification",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "classificar incidente com dados pessoais, preservar evidências e avaliar notificações exigidas",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-015",
+      "name": "DPOApplicability",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar obrigação e exceções aplicáveis à indicação de encarregado, sem presumir dispensa universal",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-016",
+      "name": "PrivacyByDesign",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar minimização, controles e proteção desde a concepção",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-017",
+      "name": "AutomatedDecision",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar transparência e revisão de decisões automatizadas quando aplicável",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-018",
+      "name": "DataAccuracy",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "verificar atualização, origem e correção de dados pessoais",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-019",
+      "name": "AnonymizationClaim",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "validar alegação de anonimização e risco de reidentificação",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "PRIV-020",
+      "name": "CrossContextLeakage",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "on_ingress",
+        "before_egress",
+        "between_agents",
+        "between_actions"
+      ],
+      "domain": "privacy_lgpd",
+      "description": "impedir que dados de um cliente/tenant sejam expostos a outro",
+      "owner_agent": "LGPDComplianceAgent",
+      "actions": [
+        "DetectPersonalData",
+        "DetectSensitiveData",
+        "ValidateLegalBasis",
+        "CheckPurpose",
+        "CheckRetention",
+        "RedactPersonalData",
+        "CreateEvidenceRecord",
+        "AppendAuditEvent"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "SEC-001",
+      "name": "Authentication",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "validar mecanismo de autenticação adequado ao risco",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-002",
+      "name": "Authorization",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "verificar menor privilégio e autorização por recurso/ação",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-003",
+      "name": "TenantIsolation",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "impedir leitura ou mutação entre empresas",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-004",
+      "name": "SecretsExposure",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "impedir segredos, tokens e credenciais em payloads, logs, erros ou exports",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-005",
+      "name": "Encryption",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "verificar proteção criptográfica em trânsito e em repouso conforme política",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-006",
+      "name": "KeyLifecycle",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "verificar rotação, acesso, revogação e recuperação de chaves",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-007",
+      "name": "InputValidation",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "validar esquema, tamanho, tipo, encoding e limites de entrada",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-008",
+      "name": "OutputFiltering",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "remover dados/atributos proibidos antes da saída",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-009",
+      "name": "AuditIntegrity",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "proteger integridade, acesso e retenção de trilhas",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-010",
+      "name": "VulnerabilityStatus",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "verificar vulnerabilidades e dependências relevantes",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-011",
+      "name": "BackupRecoverability",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "verificar backup, restauração e objetivos de recuperação",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-012",
+      "name": "IncidentReadiness",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "verificar contatos, plano, severidade e resposta a incidentes",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-013",
+      "name": "ThirdPartyAccess",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "validar acesso de fornecedores e integrações",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-014",
+      "name": "RateAbuseProtection",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "detectar abuso, automação indevida e exfiltração",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-015",
+      "name": "DataExportAuthorization",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "exigir autorização, minimização e registro em exportações",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "SEC-016",
+      "name": "SecureConfiguration",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "information_security",
+      "description": "verificar configuração segura e ausência de defaults perigosos",
+      "owner_agent": "IdentityAndAccessComplianceAgent",
+      "actions": [
+        "ValidateSchema",
+        "CheckAuthorization",
+        "EnforceTenantBoundary",
+        "RedactSecrets",
+        "EncryptPayload",
+        "AppendAuditEvent"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CORP-001",
+      "name": "CNPJStatus",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "business_registration",
+      "description": "verificar situação cadastral e consistência do CNPJ",
+      "owner_agent": "BusinessRegistrationAgent",
+      "actions": [
+        "ResolveEntity",
+        "ResolveJurisdiction",
+        "AssessApplicability",
+        "ValidateDocument",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "CORP-002",
+      "name": "LegalFormEligibility",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "business_registration",
+      "description": "verificar compatibilidade da forma empresarial com a operação",
+      "owner_agent": "BusinessRegistrationAgent",
+      "actions": [
+        "ResolveEntity",
+        "ResolveJurisdiction",
+        "AssessApplicability",
+        "ValidateDocument",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "CORP-003",
+      "name": "CNAECompatibility",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "business_registration",
+      "description": "verificar compatibilidade entre atividade efetiva, CNAE e permissões",
+      "owner_agent": "BusinessRegistrationAgent",
+      "actions": [
+        "ResolveEntity",
+        "ResolveJurisdiction",
+        "AssessApplicability",
+        "ValidateDocument",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "CORP-004",
+      "name": "AddressAndJurisdiction",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "business_registration",
+      "description": "verificar endereço e jurisdição para obrigações locais",
+      "owner_agent": "BusinessRegistrationAgent",
+      "actions": [
+        "ResolveEntity",
+        "ResolveJurisdiction",
+        "AssessApplicability",
+        "ValidateDocument",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "CORP-005",
+      "name": "PermitApplicability",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "business_registration",
+      "description": "identificar alvarás/licenças aplicáveis sem presumir dispensa automática",
+      "owner_agent": "BusinessRegistrationAgent",
+      "actions": [
+        "ResolveEntity",
+        "ResolveJurisdiction",
+        "AssessApplicability",
+        "ValidateDocument",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "CORP-006",
+      "name": "RegistrationConsistency",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "business_registration",
+      "description": "comparar cadastros federal, estadual e municipal quando relevantes",
+      "owner_agent": "BusinessRegistrationAgent",
+      "actions": [
+        "ResolveEntity",
+        "ResolveJurisdiction",
+        "AssessApplicability",
+        "ValidateDocument",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "CORP-007",
+      "name": "CertificateValidity",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "business_registration",
+      "description": "verificar validade de certidões exigidas para uma operação específica",
+      "owner_agent": "BusinessRegistrationAgent",
+      "actions": [
+        "ResolveEntity",
+        "ResolveJurisdiction",
+        "AssessApplicability",
+        "ValidateDocument",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "CORP-008",
+      "name": "BusinessChangeReporting",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "business_registration",
+      "description": "detectar mudanças cadastrais que exigem atualização ou comunicação",
+      "owner_agent": "BusinessRegistrationAgent",
+      "actions": [
+        "ResolveEntity",
+        "ResolveJurisdiction",
+        "AssessApplicability",
+        "ValidateDocument",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-001",
+      "name": "RegimeEligibility",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "verificar elegibilidade e condições do regime tributário declarado",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-002",
+      "name": "MEIEligibility",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "verificar atividade permitida, participação societária, empregados e demais condições atuais do MEI",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-003",
+      "name": "RevenueThreshold",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "monitorar receita acumulada e limites aplicáveis, com período e regra versionados",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-004",
+      "name": "RevenueClassification",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "classificar receita por atividade, competência e natureza",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-005",
+      "name": "DASDueDate",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "monitorar vencimentos e status de DAS/tributos aplicáveis",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-006",
+      "name": "TaxCalculation",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "verificar cálculo, alíquota, base e arredondamento contra regra vigente",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-007",
+      "name": "WithholdingApplicability",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "verificar retenções conforme serviço, tomador, município e regra",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-008",
+      "name": "AnnualDeclaration",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "monitorar declarações anuais aplicáveis ao enquadramento",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-009",
+      "name": "SimplesObligations",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "verificar obrigações do Simples Nacional quando aplicável",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-010",
+      "name": "TaxRegimeTransition",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "detectar desenquadramento, excesso de limite ou mudança de regime e encaminhar revisão",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-011",
+      "name": "TaxEvidence",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "garantir vínculo entre cálculo, documentos, regra e período",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-012",
+      "name": "TaxCalendar",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "manter calendário por empresa, atividade, jurisdição e regime",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-013",
+      "name": "FiscalReconciliation",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "comparar vendas, recebimentos, notas e declarações",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-014",
+      "name": "TaxRecordRetention",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "verificar retenção de documentos fiscais e contábeis pelo prazo aplicável",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-015",
+      "name": "NoUnsupportedTaxAdvice",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "tax",
+      "description": "não apresentar estimativa automatizada como parecer contábil definitivo sem premissas e revisão",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "TAX-016",
+      "name": "TransactionRecordkeeping",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled"
+      ],
+      "domain": "tax",
+      "description": "Preservar e reconciliar registros de transações pelo período aplicável, sem presumir que toda empresa tenha obrigação de contabilidade formal idêntica.",
+      "owner_agent": "TaxRegimeApplicabilityAgent",
+      "actions": [
+        "AssessApplicability",
+        "CalculateTax",
+        "ReconcileRevenue",
+        "CheckRevenueThreshold",
+        "GenerateDueDateAlert",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-001",
+      "name": "InvoiceRequired",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "before_egress",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "determinar se a operação exige documento fiscal conforme regra e contraparte",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyFiscalDocumentRequirement",
+        "VerifyReceiptIssued",
+        "LinkPaymentToReceipt",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-002",
+      "name": "InvoiceSchema",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "before_egress",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "validar campos, identificadores, totais e formato do documento",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyFiscalDocumentRequirement",
+        "VerifyReceiptIssued",
+        "LinkPaymentToReceipt",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-003",
+      "name": "InvoiceSequence",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "before_egress",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "verificar numeração, duplicidade e integridade de série quando aplicável",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyFiscalDocumentRequirement",
+        "VerifyReceiptIssued",
+        "LinkPaymentToReceipt",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-004",
+      "name": "InvoiceAuthorization",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "before_egress",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "verificar autorização, rejeição, cancelamento ou contingência junto ao sistema competente",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyFiscalDocumentRequirement",
+        "VerifyReceiptIssued",
+        "LinkPaymentToReceipt",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-005",
+      "name": "InvoiceRecipient",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "before_egress",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "validar dados do destinatário na medida legalmente necessária",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyFiscalDocumentRequirement",
+        "VerifyReceiptIssued",
+        "LinkPaymentToReceipt",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-006",
+      "name": "ServiceMunicipalRule",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "before_egress",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "aplicar regras de NFS-e e município conforme atividade e sistema vigente",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyFiscalDocumentRequirement",
+        "VerifyReceiptIssued",
+        "LinkPaymentToReceipt",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-007",
+      "name": "ProductTaxRule",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "before_egress",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "verificar classificação e tributação de mercadorias quando aplicável",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyFiscalDocumentRequirement",
+        "VerifyReceiptIssued",
+        "LinkPaymentToReceipt",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-008",
+      "name": "CorrectionAndCancellation",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "before_egress",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "verificar prazos e procedimentos para correção/cancelamento",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyFiscalDocumentRequirement",
+        "VerifyReceiptIssued",
+        "LinkPaymentToReceipt",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-009",
+      "name": "InvoiceOutboundDisclosure",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "before_egress",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "impedir envio de documento a destinatário incorreto",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyFiscalDocumentRequirement",
+        "VerifyReceiptIssued",
+        "LinkPaymentToReceipt",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-010",
+      "name": "FiscalDocumentIntegrity",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "before_egress",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "detectar alteração, duplicidade ou divergência entre documento e transação",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyFiscalDocumentRequirement",
+        "VerifyReceiptIssued",
+        "LinkPaymentToReceipt",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-011",
+      "name": "HealthServiceReceiptObligation",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": true,
+      "default_points": [
+        "between_actions",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "verificar se a prestação e o perfil do prestador exigem recibo eletrônico Receita Saúde ou outro documento aplicável",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyReceiptIssued",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-012",
+      "name": "ReceiptOrFiscalDocumentEvidence",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "vincular a transação ao comprovante/recibo/documento fiscal correto e verificar sua existência",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "LinkPaymentToReceipt",
+        "VerifyReceiptIssued",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FISC-013",
+      "name": "ReceiptIssuanceAtPayment",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": true,
+      "default_points": [
+        "between_actions",
+        "on_state_change"
+      ],
+      "domain": "fiscal_documents",
+      "description": "verificar a emissão no momento correto do pagamento e por parcela, quando a regra aplicável assim exigir",
+      "owner_agent": "InvoiceAndFiscalDocumentAgent",
+      "actions": [
+        "ResolveReceiptObligation",
+        "VerifyReceiptIssued",
+        "DetectMissingReceipt",
+        "AlertMissingReceipt",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "high",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "FIN-001",
+      "name": "PaymentAuthorization",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "finance_payments",
+      "description": "verificar autorização, valor, moeda, destinatário e idempotência",
+      "owner_agent": "PaymentComplianceAgent",
+      "actions": [
+        "ReconcilePayment",
+        "ValidateRefund",
+        "CompareRecords",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "FIN-002",
+      "name": "PixAndPaymentData",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "finance_payments",
+      "description": "minimizar dados de pagamento e proteger identificadores",
+      "owner_agent": "PaymentComplianceAgent",
+      "actions": [
+        "ReconcilePayment",
+        "ValidateRefund",
+        "CompareRecords",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "FIN-003",
+      "name": "Reconciliation",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "finance_payments",
+      "description": "conciliar pedidos, notas, recebimentos, estornos e extratos",
+      "owner_agent": "PaymentComplianceAgent",
+      "actions": [
+        "ReconcilePayment",
+        "ValidateRefund",
+        "CompareRecords",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "FIN-004",
+      "name": "RefundEligibility",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "finance_payments",
+      "description": "verificar política e direitos legais para estorno/reembolso",
+      "owner_agent": "PaymentComplianceAgent",
+      "actions": [
+        "ReconcilePayment",
+        "ValidateRefund",
+        "CompareRecords",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "FIN-005",
+      "name": "ChargebackEvidence",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "finance_payments",
+      "description": "preservar evidências necessárias sem retenção excessiva",
+      "owner_agent": "PaymentComplianceAgent",
+      "actions": [
+        "ReconcilePayment",
+        "ValidateRefund",
+        "CompareRecords",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "FIN-006",
+      "name": "FraudSignals",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "finance_payments",
+      "description": "identificar transações anômalas e encaminhar revisão",
+      "owner_agent": "PaymentComplianceAgent",
+      "actions": [
+        "ReconcilePayment",
+        "ValidateRefund",
+        "CompareRecords",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "FIN-007",
+      "name": "CashFlowConsistency",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "finance_payments",
+      "description": "detectar inconsistências entre caixa e registros",
+      "owner_agent": "PaymentComplianceAgent",
+      "actions": [
+        "ReconcilePayment",
+        "ValidateRefund",
+        "CompareRecords",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "FIN-008",
+      "name": "PaymentExport",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "finance_payments",
+      "description": "validar destinatário e minimização antes de exportar dados financeiros",
+      "owner_agent": "PaymentComplianceAgent",
+      "actions": [
+        "ReconcilePayment",
+        "ValidateRefund",
+        "CompareRecords",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "FIN-009",
+      "name": "FinancialRecordRetention",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "finance_payments",
+      "description": "aplicar prazos de guarda e restrição de acesso",
+      "owner_agent": "PaymentComplianceAgent",
+      "actions": [
+        "ReconcilePayment",
+        "ValidateRefund",
+        "CompareRecords",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "FIN-010",
+      "name": "NoCredentialStorage",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "finance_payments",
+      "description": "impedir armazenamento indevido de senha, CVV ou segredo de pagamento",
+      "owner_agent": "PaymentComplianceAgent",
+      "actions": [
+        "ReconcilePayment",
+        "ValidateRefund",
+        "CompareRecords",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "LAB-001",
+      "name": "EmploymentApplicability",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "labor",
+      "description": "identificar obrigações trabalhistas conforme vínculo real, não apenas rótulo contratual",
+      "owner_agent": "eSocialAndLaborObligationsAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "ValidateTotals",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "LAB-002",
+      "name": "MEIEmployeeLimit",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "labor",
+      "description": "verificar limite e condições de contratação permitida ao MEI na regra vigente",
+      "owner_agent": "eSocialAndLaborObligationsAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "ValidateTotals",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "LAB-003",
+      "name": "PayrollAccuracy",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "labor",
+      "description": "validar folha, descontos, benefícios e pagamentos",
+      "owner_agent": "eSocialAndLaborObligationsAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "ValidateTotals",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "LAB-004",
+      "name": "eSocialObligations",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "labor",
+      "description": "monitorar eventos e prazos aplicáveis",
+      "owner_agent": "eSocialAndLaborObligationsAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "ValidateTotals",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "LAB-005",
+      "name": "FGTSAndSocialContributions",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "labor",
+      "description": "verificar recolhimentos exigidos",
+      "owner_agent": "eSocialAndLaborObligationsAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "ValidateTotals",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "LAB-006",
+      "name": "WorkingTime",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "labor",
+      "description": "verificar jornada, intervalos, descanso e registros quando aplicáveis",
+      "owner_agent": "eSocialAndLaborObligationsAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "ValidateTotals",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "LAB-007",
+      "name": "LeaveAndTermination",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "labor",
+      "description": "validar férias, afastamentos, rescisão e prazos",
+      "owner_agent": "eSocialAndLaborObligationsAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "ValidateTotals",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "LAB-008",
+      "name": "OccupationalSafety",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "labor",
+      "description": "identificar obrigações de saúde e segurança conforme atividade e porte",
+      "owner_agent": "eSocialAndLaborObligationsAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "ValidateTotals",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "LAB-009",
+      "name": "WorkerDataPrivacy",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "labor",
+      "description": "limitar acesso e tratamento de dados de trabalhadores",
+      "owner_agent": "eSocialAndLaborObligationsAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "ValidateTotals",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "LAB-010",
+      "name": "ContractorMisclassification",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "labor",
+      "description": "sinalizar risco de vínculo e exigir análise humana",
+      "owner_agent": "eSocialAndLaborObligationsAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "ValidateTotals",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "CONS-001",
+      "name": "ConsumerDisclosure",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "verificar identificação do fornecedor, preço, características e condições essenciais",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-002",
+      "name": "AdvertisingTruthfulness",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "verificar alegações objetivas e comprovação de ofertas",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-003",
+      "name": "TotalPriceTransparency",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "apresentar preço total e custos obrigatórios antes da contratação",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-004",
+      "name": "EcommerceInformation",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "verificar informações e confirmação exigidas para contratação eletrônica",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-005",
+      "name": "RightOfWithdrawal",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "avaliar direito de arrependimento e prazo quando aplicável",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-006",
+      "name": "CancellationFlow",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "verificar cancelamento acessível e rastreável",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-007",
+      "name": "WarrantyAndDefect",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "controlar garantia legal/contratual e tratamento de defeitos",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-008",
+      "name": "ComplaintHandling",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "registrar e encaminhar reclamações nos prazos aplicáveis",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-009",
+      "name": "DarkPatterns",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "detectar padrões que induzam erro ou dificultem escolhas/cancelamentos",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-010",
+      "name": "CustomerDataDisclosure",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "evitar divulgação de dados de clientes a destinatários errados",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-011",
+      "name": "TermsVersioning",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "registrar versão dos termos aceitos e sua vigência",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONS-012",
+      "name": "Accessibility",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "consumer",
+      "description": "verificar requisitos de acessibilidade aplicáveis ao canal e serviço",
+      "owner_agent": "ConsumerRightsAgent",
+      "actions": [
+        "ValidateDocument",
+        "DeliverCustomerDisclosure",
+        "RecordCustomerAcceptance",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONT-001",
+      "name": "ContractCompleteness",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "contracts_ip",
+      "description": "verificar partes, objeto, preço, prazos, responsabilidades e condições essenciais",
+      "owner_agent": "ContractAndTermsAgent",
+      "actions": [
+        "ValidateDocument",
+        "ValidateSignature",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONT-002",
+      "name": "ContractAuthority",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "contracts_ip",
+      "description": "verificar autoridade para aceitar ou assinar em nome da empresa",
+      "owner_agent": "ContractAndTermsAgent",
+      "actions": [
+        "ValidateDocument",
+        "ValidateSignature",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONT-003",
+      "name": "ContractVersion",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "contracts_ip",
+      "description": "preservar versão, aceite, timestamp e evidência",
+      "owner_agent": "ContractAndTermsAgent",
+      "actions": [
+        "ValidateDocument",
+        "ValidateSignature",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONT-004",
+      "name": "RenewalAndExpiry",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "contracts_ip",
+      "description": "monitorar vencimentos, renovação e aviso prévio",
+      "owner_agent": "ContractAndTermsAgent",
+      "actions": [
+        "ValidateDocument",
+        "ValidateSignature",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONT-005",
+      "name": "LiabilityAndWarranty",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "contracts_ip",
+      "description": "sinalizar cláusulas de responsabilidade e garantia que exigem revisão jurídica",
+      "owner_agent": "ContractAndTermsAgent",
+      "actions": [
+        "ValidateDocument",
+        "ValidateSignature",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONT-006",
+      "name": "Confidentiality",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "contracts_ip",
+      "description": "verificar obrigações de confidencialidade e classificação",
+      "owner_agent": "ContractAndTermsAgent",
+      "actions": [
+        "ValidateDocument",
+        "ValidateSignature",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONT-007",
+      "name": "IPOwnership",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "contracts_ip",
+      "description": "verificar licença, titularidade e permissões de uso de conteúdo/software",
+      "owner_agent": "ContractAndTermsAgent",
+      "actions": [
+        "ValidateDocument",
+        "ValidateSignature",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONT-008",
+      "name": "ThirdPartyLicense",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "contracts_ip",
+      "description": "verificar licenças de bibliotecas, imagens, fontes e materiais de terceiros",
+      "owner_agent": "ContractAndTermsAgent",
+      "actions": [
+        "ValidateDocument",
+        "ValidateSignature",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONT-009",
+      "name": "ESignatureEvidence",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "contracts_ip",
+      "description": "preservar evidências de autoria, integridade e aceite eletrônico",
+      "owner_agent": "ContractAndTermsAgent",
+      "actions": [
+        "ValidateDocument",
+        "ValidateSignature",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "CONT-010",
+      "name": "UnfairOrAmbiguousTerms",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "contracts_ip",
+      "description": "sinalizar cláusulas ambíguas, potencialmente abusivas ou inconsistentes para revisão humana",
+      "owner_agent": "ContractAndTermsAgent",
+      "actions": [
+        "ValidateDocument",
+        "ValidateSignature",
+        "RecordRuleVersion",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "OPS-001",
+      "name": "ActivityLicense",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "verificar licenças por atividade, local e risco",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-002",
+      "name": "SanitaryPermit",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "verificar exigências sanitárias para atividades abrangidas",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-003",
+      "name": "ProductTraceability",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "verificar lote, origem, validade e rastreabilidade quando aplicável",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-004",
+      "name": "ProductSafety",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "verificar alertas, recolhimento e restrições de venda",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-005",
+      "name": "EnvironmentalDuty",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "identificar licenciamento, resíduos e obrigações ambientais conforme atividade",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-006",
+      "name": "WasteDestination",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "verificar destinação e evidência para resíduos sujeitos a controle",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-007",
+      "name": "ProfessionalLicense",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "verificar registro profissional quando a atividade exigir",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-008",
+      "name": "SectorRegulation",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "determinar se há regulação setorial (saúde, alimentos, transporte, finanças etc.)",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-009",
+      "name": "PublicProcurement",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "verificar requisitos de habilitação, certidões e integridade em contratação pública",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-010",
+      "name": "ImportExport",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "verificar obrigações aduaneiras e restrições se houver comércio internacional",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-011",
+      "name": "RecallAndSafetyNotice",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "interromper venda/expedição e notificar responsáveis quando houver risco confirmado",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "OPS-012",
+      "name": "LocalRuleApplicability",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": true,
+      "default_points": [],
+      "domain": "sectoral_operations",
+      "description": "determinar exigências estaduais e municipais por localidade",
+      "owner_agent": "CNAEAndPermitAgent",
+      "actions": [
+        "AssessApplicability",
+        "ValidateDocument",
+        "RequireHumanReview",
+        "CreateEvidenceRecord"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": true
+    },
+    {
+      "id": "GOV-001",
+      "name": "RuleVersionCurrent",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "compliance_governance",
+      "description": "verificar que a regra usada está vigente na data da operação",
+      "owner_agent": "ComplianceOrchestratorAgent",
+      "actions": [
+        "ValidateRuleVersion",
+        "EvaluateIntent",
+        "EvaluatePolicy",
+        "RecordDecision",
+        "AppendAuditEvent",
+        "VerifyEvidenceIntegrity"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "GOV-002",
+      "name": "EvidenceCompleteness",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "compliance_governance",
+      "description": "verificar evidência mínima para sustentar resultado",
+      "owner_agent": "ComplianceOrchestratorAgent",
+      "actions": [
+        "ValidateRuleVersion",
+        "EvaluateIntent",
+        "EvaluatePolicy",
+        "RecordDecision",
+        "AppendAuditEvent",
+        "VerifyEvidenceIntegrity"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "GOV-003",
+      "name": "DecisionTraceability",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "compliance_governance",
+      "description": "vincular resultado a dados de entrada, regra, versão, Agent e Action",
+      "owner_agent": "ComplianceOrchestratorAgent",
+      "actions": [
+        "ValidateRuleVersion",
+        "EvaluateIntent",
+        "EvaluatePolicy",
+        "RecordDecision",
+        "AppendAuditEvent",
+        "VerifyEvidenceIntegrity"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "GOV-004",
+      "name": "PolicyCoverage",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "compliance_governance",
+      "description": "verificar cobertura de pontos de execução obrigatórios",
+      "owner_agent": "ComplianceOrchestratorAgent",
+      "actions": [
+        "ValidateRuleVersion",
+        "EvaluateIntent",
+        "EvaluatePolicy",
+        "RecordDecision",
+        "AppendAuditEvent",
+        "VerifyEvidenceIntegrity"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "GOV-005",
+      "name": "ExceptionExpiry",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "compliance_governance",
+      "description": "expirar exceções e reavaliar operações relacionadas",
+      "owner_agent": "ComplianceOrchestratorAgent",
+      "actions": [
+        "ValidateRuleVersion",
+        "EvaluateIntent",
+        "EvaluatePolicy",
+        "RecordDecision",
+        "AppendAuditEvent",
+        "VerifyEvidenceIntegrity"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "GOV-006",
+      "name": "HumanReviewRequired",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "compliance_governance",
+      "description": "exigir revisão humana em caso ambíguo, de alto impacto ou com fonte insuficiente",
+      "owner_agent": "ComplianceOrchestratorAgent",
+      "actions": [
+        "ValidateRuleVersion",
+        "EvaluateIntent",
+        "EvaluatePolicy",
+        "RecordDecision",
+        "AppendAuditEvent",
+        "VerifyEvidenceIntegrity"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "GOV-007",
+      "name": "RegulatoryChange",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "compliance_governance",
+      "description": "detectar alteração normativa e identificar políticas potencialmente afetadas",
+      "owner_agent": "ComplianceOrchestratorAgent",
+      "actions": [
+        "ValidateRuleVersion",
+        "EvaluateIntent",
+        "EvaluatePolicy",
+        "RecordDecision",
+        "AppendAuditEvent",
+        "VerifyEvidenceIntegrity"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "GOV-008",
+      "name": "DataLineage",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "compliance_governance",
+      "description": "preservar proveniência e transformações de dados",
+      "owner_agent": "ComplianceOrchestratorAgent",
+      "actions": [
+        "ValidateRuleVersion",
+        "EvaluateIntent",
+        "EvaluatePolicy",
+        "RecordDecision",
+        "AppendAuditEvent",
+        "VerifyEvidenceIntegrity"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "GOV-009",
+      "name": "ControlConflict",
+      "mandatory": true,
+      "user_can_disable": false,
+      "conditional": false,
+      "default_points": [
+        "between_actions",
+        "scheduled",
+        "on_state_change"
+      ],
+      "domain": "compliance_governance",
+      "description": "detectar regras conflitantes e bloquear decisão automática até resolução",
+      "owner_agent": "ComplianceOrchestratorAgent",
+      "actions": [
+        "ValidateRuleVersion",
+        "EvaluateIntent",
+        "EvaluatePolicy",
+        "RecordDecision",
+        "AppendAuditEvent",
+        "VerifyEvidenceIntegrity"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    },
+    {
+      "id": "GOV-010",
+      "name": "ComplianceStatusDisclosure",
+      "mandatory": false,
+      "user_can_disable": true,
+      "conditional": false,
+      "default_points": [],
+      "domain": "compliance_governance",
+      "description": "não declarar “conforme” quando resultado for indeterminado ou houver controles críticos pendentes",
+      "owner_agent": "ComplianceOrchestratorAgent",
+      "actions": [
+        "ValidateRuleVersion",
+        "EvaluateIntent",
+        "EvaluatePolicy",
+        "RecordDecision",
+        "AppendAuditEvent",
+        "VerifyEvidenceIntegrity"
+      ],
+      "severity": "medium",
+      "unknown_result": "indeterminate",
+      "requires_official_source": false
+    }
+  ]
+}
