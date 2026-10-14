@@ -346,3 +346,39 @@ Regras devem ser consultadas em fontes oficiais, conforme a matéria: Portal do 
 8. Há testes de isolamento entre tenants, replay/idempotência, concorrência, expiração de exceções e vazamento entre Agents.
 9. Toda Action com efeito externo exige autorização explícita e Intent de pré-condição.
 10. Cada controle regulatório possui fonte oficial, versão, vigência e responsável por revisão antes de produção.
+
+
+## 5. Intents obrigatórios e bloqueio de desativação
+
+O manifest expõe `mandatory` e `user_can_disable` em cada Intent. Para um Intent obrigatório, o contrato é `mandatory: true` e `user_can_disable: false`. A interface deve mostrar esse estado ao responsável pela empresa e não oferecer um toggle para desligar a verificação.
+
+**Obrigatório não significa que toda obrigação se aplica a toda empresa.** Significa que o sistema não pode desativar a verificação de aplicabilidade. Se evidências confiáveis demonstrarem que uma obrigação setorial não se aplica, o resultado pode ser `not_applicable`; se não houver dados suficientes, deve ser `indeterminate`, nunca presumidamente conforme. Um usuário não pode marcar uma regra como não aplicável apenas para evitar o controle.
+
+Os controles de privacidade/LGPD, tributários, fiscais e de registro de transações estão marcados como obrigatórios no manifest. Os pontos de execução permanecem explícitos e configuráveis. O modo de enforcement deve respeitar a severidade e a base legal: `mandatory` proíbe desativar a verificação, mas não transforma automaticamente toda divergência em bloqueio. Bloqueios, quarentena e revisões humanas são decisões de policy separadas.
+
+## 6. Recibos e documentos fiscais — atenção especial à saúde
+
+O catálogo inclui os seguintes Intents obrigatórios:
+
+- `FISC-011 HealthServiceReceiptObligation`: verificar se a prestação e o perfil do prestador exigem recibo eletrônico Receita Saúde ou outro documento aplicável.
+- `FISC-012 ReceiptOrFiscalDocumentEvidence`: vincular a transação ao comprovante/recibo/documento fiscal correto e verificar sua existência.
+- `FISC-013 ReceiptIssuanceAtPayment`: verificar a emissão no momento correto do pagamento e por parcela, quando a regra aplicável assim exigir.
+
+Agents responsáveis: `HealthProfessionalReceiptAgent`, `ReceiptAndProofOfPaymentAgent` e `FiscalDocumentObligationAgent`. Actions relacionadas: `ResolveReceiptObligation`, `PrepareReceiptData`, `VerifyReceiptIssued`, `LinkPaymentToReceipt`, `DetectMissingReceipt`, `AlertMissingReceipt`, `GenerateAuthorizedReceipt`, `VerifyFiscalDocumentRequirement` e `RecordReceiptCorrection`.
+
+### Regra de aplicabilidade
+
+A Receita Federal determina o Receita Saúde, desde 1º de janeiro de 2025, para dentistas, fisioterapeutas, fonoaudiólogos, médicos, psicólogos e terapeutas ocupacionais que prestam serviços **como pessoa física**. A regra trata o pagamento como momento da efetivação e exige um recibo para cada pagamento. Fonte normativa: [IN RFB nº 2.240/2024](https://normas.receita.fazenda.gov.br/sijut2consulta/normas.receisulta/link.action?idAto=142017&visao=compilado) e [manual oficial Receita Saúde](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/manuais/orientacao-tributaria/receita-saude-2.1.pdf/view).
+
+Não generalizar Receita Saúde para clínicas ou profissionais que atuam como pessoa jurídica. Nesses casos, deve-se avaliar o documento fiscal exigido pela atividade, município, regime e operação. Também não presumir que toda transação de todo MEI precisa de nota fiscal: a obrigação varia, por exemplo, com o tipo de destinatário e a operação. O Intent é obrigatório porque o sistema deve verificar a regra; o resultado pode ser `not_applicable` quando a avaliação documentada comprovar isso.
+
+### Fluxo mínimo contra omissão de recibo
+
+1. Detectar a confirmação do pagamento e resolver perfil do prestador, natureza (PF/PJ), atividade e jurisdição.
+2. Resolver a obrigação e sua fonte/vigência antes de decidir qual documento é válido.
+3. Procurar documento existente e deduplicar por pagamento/parcela; não emitir outro automaticamente se já existir.
+4. Quando obrigatório, solicitar/acionar a emissão pela integração autorizada e confirmar o identificador oficial do documento.
+5. Se não houver emissão ou confirmação, criar pendência, alertar responsável e preservar evidência mínima. Não marcar como conforme só porque a Action de emissão foi solicitada.
+6. Manter vínculo entre pagamento, serviço, documento, correção/cancelamento e trilha de auditoria.
+
+A Action `GenerateAuthorizedReceipt` representa uma operação via integração autorizada; não deve fabricar recibos oficiais localmente nem alegar que houve emissão sem confirmação do sistema competente.
