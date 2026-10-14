@@ -1,5 +1,6 @@
 version: "1.0.0"
 catalog: allascode-compliance-plane
+definitions_file: catalog/compliance-definitions.json
 jurisdiction: BR
 scope:
   company_profiles: [MEI, ME]
