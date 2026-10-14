@@ -195,7 +195,9 @@
         "type": "object",
         "required": [
           "id",
-          "name"
+          "name",
+          "mandatory",
+          "user_can_disable"
         ],
         "additionalProperties": false,
         "properties": {
@@ -223,8 +225,54 @@
                 "on_state_change"
               ]
             }
+          },
+          "mandatory": {
+            "type": "boolean"
+          },
+          "user_can_disable": {
+            "type": "boolean"
           }
-        }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "mandatory": {
+                  "const": true
+                }
+              },
+              "required": [
+                "mandatory"
+              ]
+            },
+            "then": {
+              "properties": {
+                "user_can_disable": {
+                  "const": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mandatory": {
+                  "const": false
+                }
+              },
+              "required": [
+                "mandatory"
+              ]
+            },
+            "then": {
+              "properties": {
+                "user_can_disable": {
+                  "const": true
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "legal_sources_to_register": {
