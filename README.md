@@ -32,7 +32,7 @@ python -m pytest -q
 
 O workflow `.github/workflows/validate-compliance-registry.yml` executa essa validação em pushes e pull requests. Os testes verificam o schema, unicidade de IDs/nomes, pontos de execução permitidos e invariantes de segurança: regras desconhecidas ficam `indeterminate`, controles críticos permanecem em `fail_closed_for`, e os metadados obrigatórios de fonte/vigência/revisão/responsável continuam exigidos.
 
-Este estágio valida o **catálogo declarativo**. Ainda não implementa um motor de execução, avaliador jurídico ou interceptores de runtime para Agents/Actions.
+O catálogo declarativo agora é acompanhado por um motor inicial de políticas em `compliance/runtime.py`. Ele resolve precedência, protege Intents obrigatórios contra desativação e gera decisões tipadas. Ainda não inclui interceptores automáticos no pipeline de produção, nem evaluators legais específicos ou integrações com os sistemas fiscais.
 
 
 ## Runtime e Intents obrigatórios
