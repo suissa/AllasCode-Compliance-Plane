@@ -144,16 +144,17 @@ class ComplianceEngine:
         ]
         enabled = context.execution_point in intent.default_points
         enforcement = str(self.defaults["enforcement"])
-        point_policy_found = False
-        enabled_policy_found = False
 
+        # The first policy that explicitly configures this point or the general
+        # enabled flag wins; a narrow higher-precedence policy is not overwritten.
         for policy in policies:
-            if not point_policy_found and context.execution_point in policy.execution:
+            if context.execution_point in policy.execution:
                 enabled = policy.execution[context.execution_point]
-                point_policy_found = True
-            if not enabled_policy_found and policy.enabled is not None:
+                break
+            if policy.enabled is not None:
                 enabled = policy.enabled
-                enabled_policy_found = True
+                break
+
         for policy in policies:
             if policy.enforcement is not None:
                 enforcement = policy.enforcement
