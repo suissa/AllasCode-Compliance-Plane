@@ -2,6 +2,7 @@
 from __future__ import annotations
 import json
 import logging
+import hashlib
 from typing import Any
 from .interceptor import ComplianceEvent
 
@@ -25,8 +26,7 @@ class JsonEvidenceSink:
             "result": event.result.value,
             "enforcement": event.enforcement,
             "mandatory": event.mandatory,
-            "evidence_refs": list(event.evidence_refs),
-            "reason": event.reason,
+            "evidence_ref_hashes": [hashlib.sha256(ref.encode("utf-8")).hexdigest() for ref in event.evidence_refs],
             "action_id": event.action_id,
             "agent_id": event.agent_id,
         }
