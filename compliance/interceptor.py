@@ -50,6 +50,7 @@ class ComplianceEvent:
     action_id: str | None = None
     agent_id: str | None = None
     reason: str = ""
+    trace_id: str | None = None
 
 
 AuditSink = Callable[[ComplianceEvent], None]
@@ -118,6 +119,7 @@ class ComplianceInterceptor:
         entity_type: str | None = None,
         attributes: Mapping[str, Any] | None = None,
         rule_versions: Mapping[str, str] | None = None,
+        trace_id: str | None = None,
     ) -> InterceptionResult:
         """Evaluate all declared Intents before executing the wrapped operation."""
         context = EvaluationContext(
@@ -159,6 +161,7 @@ class ComplianceInterceptor:
                 action_id=action_id,
                 agent_id=agent_id,
                 reason=decision.reason,
+                trace_id=trace_id,
             ))
 
             block, quarantine = self._should_stop(decision, operation_class)
@@ -179,6 +182,7 @@ class ComplianceInterceptor:
                     action_id=action_id,
                     agent_id=agent_id,
                     reason=decision.reason,
+                    trace_id=trace_id,
                 ))
                 return InterceptionResult(False, False, findings=tuple(findings))
 
@@ -196,6 +200,7 @@ class ComplianceInterceptor:
                     action_id=action_id,
                     agent_id=agent_id,
                     reason=decision.reason,
+                    trace_id=trace_id,
                 ))
                 return InterceptionResult(False, True, findings=tuple(findings))
 
@@ -213,5 +218,6 @@ class ComplianceInterceptor:
             action_id=action_id,
             agent_id=agent_id,
             reason="All enabled compliance checks permitted execution.",
+            trace_id=trace_id,
         ))
         return InterceptionResult(True, False, value=value, findings=tuple(findings))
