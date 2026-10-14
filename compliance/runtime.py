@@ -142,7 +142,18 @@ class ComplianceEngine:
             for level in PRECEDENCE
             if (key := keys[level]) is not None and key in self.policies.get(level, {})
         ]
-        enabled = context.execution_point in intent.default_points
+        # An Intent with explicit default_points opts into that narrower schedule.
+        # Otherwise inherit the manifest-wide execution defaults; ignoring these
+        # defaults silently skipped checks and allowed non-compliant operations.
+        configured_points = intent.default_points
+        if configured_points:
+            enabled = context.execution_point in configured_points
+        else:
+            enabled = bool(
+                self.defaults.get("execution", {}).get(
+                    context.execution_point, False
+                )
+            )
         enforcement = str(self.defaults["enforcement"])
 
         # The first policy that explicitly configures this point or the general
