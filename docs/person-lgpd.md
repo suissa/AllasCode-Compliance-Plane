@@ -1,6 +1,6 @@
 # Person entity and LGPD evidence workflow
 
-The PersonService is the reference integration boundary for personal data. It is
+The `compliance/catalog.py` loader reads `catalog/compliance-definitions.json` at service startup, indexes Agents/Actions/Intents, and validates owner/action references. The large JSON is declarative metadata; it is not a request payload and should not be resent for every operation. The YAML manifest configures runtime defaults and policies. `PersonService` obtains its LGPD Intent IDs from the JSON catalog and verifies that those IDs also exist in the YAML runtime manifest.\n\nThe PersonService is the reference integration boundary for personal data. It is
 not a claim that importing this module makes an application legally compliant.
 Production compliance requires reviewed, versioned evaluators and evidence from
 authorization, purpose, legal-basis, retention, security, processor and data-rights
