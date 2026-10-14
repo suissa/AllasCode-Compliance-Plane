@@ -89,3 +89,25 @@ def test_catalog_registry_has_no_duplicate_agents_or_actions() -> None:
     registry = load_registry()
     assert len(registry["agents"]) == len(set(registry["agents"]))
     assert len(registry["actions"]) == len(set(registry["actions"]))
+
+
+def test_mandatory_intents_cannot_be_marked_user_disableable() -> None:
+    for intent in load_registry()["intents"]:
+        assert intent["mandatory"] is (not intent["user_can_disable"]), intent["id"]
+        if intent["mandatory"]:
+            assert intent.get("default_points"), intent["id"]
+
+
+def test_health_receipt_intents_exist_and_are_mandatory() -> None:
+    intents = {item["id"]: item for item in load_registry()["intents"]}
+    for intent_id in ("FISC-011", "FISC-012", "FISC-013"):
+        assert intent_id in intents
+        assert intents[intent_id]["mandatory"] is True
+        assert intents[intent_id]["user_can_disable"] is False
+
+
+def test_mandatory_lgpd_and_tax_controls_are_visible_in_manifest() -> None:
+    intents = {item["id"]: item for item in load_registry()["intents"]}
+    for intent_id in ("PRIV-001", "PRIV-002", "TAX-001", "TAX-005", "TAX-016"):
+        assert intents[intent_id]["mandatory"] is True
+        assert intents[intent_id]["user_can_disable"] is False
