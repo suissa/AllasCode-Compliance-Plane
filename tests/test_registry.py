@@ -111,3 +111,41 @@ def test_mandatory_lgpd_and_tax_controls_are_visible_in_manifest() -> None:
     for intent_id in ("PRIV-001", "PRIV-002", "TAX-001", "TAX-005", "TAX-016"):
         assert intents[intent_id]["mandatory"] is True
         assert intents[intent_id]["user_can_disable"] is False
+
+
+def test_complete_definitions_match_registry_and_schema() -> None:
+    definitions_path = ROOT / "catalog" / "compliance-definitions.json"
+    definitions_schema_path = ROOT / "schemas" / "compliance-definitions.schema.json"
+    with definitions_path.open(encoding="utf-8") as stream:
+        definitions = json.load(stream)
+    with definitions_schema_path.open(encoding="utf-8") as stream:
+        definitions_schema = json.load(stream)
+
+    Draft202012Validator.check_schema(definitions_schema)
+    errors = sorted(
+        Draft202012Validator(definitions_schema).iter_errors(definitions),
+        key=lambda error: list(error.absolute_path),
+    )
+    assert not errors, "\\n".join(
+        f"{'/'.join(map(str, error.absolute_path)) or '<root>'}: {error.message}"
+        for error in errors
+    )
+
+    registry = load_registry()
+    assert set(registry["agents"]) == {item["id"] for item in definitions["agents"]}
+    assert set(registry["actions"]) == {item["id"] for item in definitions["actions"]}
+    assert {item["id"] for item in registry["intents"]} == {item["id"] for item in definitions["intents"]}
+
+    agent_ids = {item["id"] for item in definitions["agents"]}
+    action_ids = {item["id"] for item in definitions["actions"]}
+    for intent in definitions["intents"]:
+        assert intent["owner_agent"] in agent_ids, intent["id"]
+        assert set(intent["actions"]).issubset(action_ids), intent["id"]
+
+
+def test_definition_ids_are_unique() -> None:
+    with (ROOT / "catalog" / "compliance-definitions.json").open(encoding="utf-8") as stream:
+        definitions = json.load(stream)
+    for key in ("agents", "actions", "intents"):
+        ids = [item["id"] for item in definitions[key]]
+        assert len(ids) == len(set(ids)), f"duplicate {key} IDs"
