@@ -46,9 +46,9 @@ not_applicable must be assessed and supported by evidence.
 - The interceptor emits compliance.evaluated per control and a terminal event
   such as compliance.blocked or compliance.execution_allowed.
 - trace_id correlates events for one request; operation_id, rule version, intent
-  ID, result and evidence references provide audit context.
+  ID, result and hashes of evidence references provide audit context.
 - JsonEvidenceSink emits structured JSON logs and excludes names, phone numbers,
-  email addresses and raw attributes.
+  email addresses, raw attributes, free-text reasons, or raw evidence references.
 - Keep logs access-controlled and append-only where appropriate; define retention
   and protect evidence references against unauthorized resolution.
 
