@@ -168,25 +168,25 @@ actions:
   - RecordReceiptCorrection
 intents:
   - {id: PRIV-001, name: LGPD, default_points: [on_ingress, before_egress, between_agents, between_actions], mandatory: true, user_can_disable: false}
-  - {id: PRIV-002, name: DataMinimization, mandatory: true, user_can_disable: false}
-  - {id: PRIV-003, name: PurposeLimitation, mandatory: true, user_can_disable: false}
-  - {id: PRIV-004, name: LegalBasis, mandatory: true, user_can_disable: false}
-  - {id: PRIV-005, name: SensitiveData, mandatory: true, user_can_disable: false}
-  - {id: PRIV-006, name: ChildrenAndAdolescents, conditional: true, mandatory: true, user_can_disable: false}
-  - {id: PRIV-007, name: TransparencyNotice, mandatory: true, user_can_disable: false}
-  - {id: PRIV-008, name: ConsentValidity, mandatory: true, user_can_disable: false}
-  - {id: PRIV-009, name: DataSubjectRights, mandatory: true, user_can_disable: false}
-  - {id: PRIV-010, name: RetentionLimit, mandatory: true, user_can_disable: false}
-  - {id: PRIV-011, name: SecureDeletion, mandatory: true, user_can_disable: false}
-  - {id: PRIV-012, name: ProcessorContract, mandatory: true, user_can_disable: false}
-  - {id: PRIV-013, name: SharingAndTransfer, mandatory: true, user_can_disable: false}
-  - {id: PRIV-014, name: IncidentNotification, mandatory: true, user_can_disable: false}
-  - {id: PRIV-015, name: DPOApplicability, mandatory: true, user_can_disable: false}
-  - {id: PRIV-016, name: PrivacyByDesign, mandatory: true, user_can_disable: false}
-  - {id: PRIV-017, name: AutomatedDecision, mandatory: true, user_can_disable: false}
-  - {id: PRIV-018, name: DataAccuracy, mandatory: true, user_can_disable: false}
-  - {id: PRIV-019, name: AnonymizationClaim, mandatory: true, user_can_disable: false}
-  - {id: PRIV-020, name: CrossContextLeakage, mandatory: true, user_can_disable: false}
+  - {id: PRIV-002, name: DataMinimization, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-003, name: PurposeLimitation, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-004, name: LegalBasis, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-005, name: SensitiveData, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-006, name: ChildrenAndAdolescents, conditional: true, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-007, name: TransparencyNotice, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-008, name: ConsentValidity, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-009, name: DataSubjectRights, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-010, name: RetentionLimit, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-011, name: SecureDeletion, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-012, name: ProcessorContract, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-013, name: SharingAndTransfer, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-014, name: IncidentNotification, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-015, name: DPOApplicability, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-016, name: PrivacyByDesign, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-017, name: AutomatedDecision, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-018, name: DataAccuracy, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-019, name: AnonymizationClaim, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
+  - {id: PRIV-020, name: CrossContextLeakage, mandatory: true, user_can_disable: false, default_points: [on_ingress, before_egress, between_agents, between_actions]}
   - {id: SEC-001, name: Authentication, mandatory: false, user_can_disable: true}
   - {id: SEC-002, name: Authorization, mandatory: false, user_can_disable: true}
   - {id: SEC-003, name: TenantIsolation, mandatory: false, user_can_disable: true}
@@ -211,32 +211,32 @@ intents:
   - {id: CORP-006, name: RegistrationConsistency, mandatory: false, user_can_disable: true}
   - {id: CORP-007, name: CertificateValidity, mandatory: false, user_can_disable: true}
   - {id: CORP-008, name: BusinessChangeReporting, mandatory: false, user_can_disable: true}
-  - {id: TAX-001, name: RegimeEligibility, mandatory: true, user_can_disable: false}
-  - {id: TAX-002, name: MEIEligibility, mandatory: true, user_can_disable: false}
-  - {id: TAX-003, name: RevenueThreshold, mandatory: true, user_can_disable: false}
-  - {id: TAX-004, name: RevenueClassification, mandatory: true, user_can_disable: false}
-  - {id: TAX-005, name: DASDueDate, mandatory: true, user_can_disable: false}
-  - {id: TAX-006, name: TaxCalculation, mandatory: true, user_can_disable: false}
-  - {id: TAX-007, name: WithholdingApplicability, mandatory: true, user_can_disable: false}
-  - {id: TAX-008, name: AnnualDeclaration, mandatory: true, user_can_disable: false}
-  - {id: TAX-009, name: SimplesObligations, mandatory: true, user_can_disable: false}
-  - {id: TAX-010, name: TaxRegimeTransition, mandatory: true, user_can_disable: false}
-  - {id: TAX-011, name: TaxEvidence, mandatory: true, user_can_disable: false}
-  - {id: TAX-012, name: TaxCalendar, mandatory: true, user_can_disable: false}
-  - {id: TAX-013, name: FiscalReconciliation, mandatory: true, user_can_disable: false}
-  - {id: TAX-014, name: TaxRecordRetention, mandatory: true, user_can_disable: false}
-  - {id: TAX-015, name: NoUnsupportedTaxAdvice, mandatory: true, user_can_disable: false}
+  - {id: TAX-001, name: RegimeEligibility, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-002, name: MEIEligibility, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-003, name: RevenueThreshold, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-004, name: RevenueClassification, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-005, name: DASDueDate, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-006, name: TaxCalculation, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-007, name: WithholdingApplicability, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-008, name: AnnualDeclaration, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-009, name: SimplesObligations, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-010, name: TaxRegimeTransition, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-011, name: TaxEvidence, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-012, name: TaxCalendar, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-013, name: FiscalReconciliation, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-014, name: TaxRecordRetention, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: TAX-015, name: NoUnsupportedTaxAdvice, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
   - {id: TAX-016, name: TransactionRecordkeeping, default_points: [between_actions, scheduled], mandatory: true, user_can_disable: false}
-  - {id: FISC-001, name: InvoiceRequired, mandatory: true, user_can_disable: false}
-  - {id: FISC-002, name: InvoiceSchema, mandatory: true, user_can_disable: false}
-  - {id: FISC-003, name: InvoiceSequence, mandatory: true, user_can_disable: false}
-  - {id: FISC-004, name: InvoiceAuthorization, mandatory: true, user_can_disable: false}
-  - {id: FISC-005, name: InvoiceRecipient, mandatory: true, user_can_disable: false}
-  - {id: FISC-006, name: ServiceMunicipalRule, mandatory: true, user_can_disable: false}
-  - {id: FISC-007, name: ProductTaxRule, mandatory: true, user_can_disable: false}
-  - {id: FISC-008, name: CorrectionAndCancellation, mandatory: true, user_can_disable: false}
-  - {id: FISC-009, name: InvoiceOutboundDisclosure, mandatory: true, user_can_disable: false}
-  - {id: FISC-010, name: FiscalDocumentIntegrity, mandatory: true, user_can_disable: false}
+  - {id: FISC-001, name: InvoiceRequired, mandatory: true, user_can_disable: false, default_points: [between_actions, before_egress, on_state_change]}
+  - {id: FISC-002, name: InvoiceSchema, mandatory: true, user_can_disable: false, default_points: [between_actions, before_egress, on_state_change]}
+  - {id: FISC-003, name: InvoiceSequence, mandatory: true, user_can_disable: false, default_points: [between_actions, before_egress, on_state_change]}
+  - {id: FISC-004, name: InvoiceAuthorization, mandatory: true, user_can_disable: false, default_points: [between_actions, before_egress, on_state_change]}
+  - {id: FISC-005, name: InvoiceRecipient, mandatory: true, user_can_disable: false, default_points: [between_actions, before_egress, on_state_change]}
+  - {id: FISC-006, name: ServiceMunicipalRule, mandatory: true, user_can_disable: false, default_points: [between_actions, before_egress, on_state_change]}
+  - {id: FISC-007, name: ProductTaxRule, mandatory: true, user_can_disable: false, default_points: [between_actions, before_egress, on_state_change]}
+  - {id: FISC-008, name: CorrectionAndCancellation, mandatory: true, user_can_disable: false, default_points: [between_actions, before_egress, on_state_change]}
+  - {id: FISC-009, name: InvoiceOutboundDisclosure, mandatory: true, user_can_disable: false, default_points: [between_actions, before_egress, on_state_change]}
+  - {id: FISC-010, name: FiscalDocumentIntegrity, mandatory: true, user_can_disable: false, default_points: [between_actions, before_egress, on_state_change]}
   - {id: FISC-011, name: HealthServiceReceiptObligation, conditional: true, default_points: [between_actions, on_state_change], mandatory: true, user_can_disable: false}
   - {id: FISC-012, name: ReceiptOrFiscalDocumentEvidence, default_points: [between_actions, on_state_change], mandatory: true, user_can_disable: false}
   - {id: FISC-013, name: ReceiptIssuanceAtPayment, conditional: true, default_points: [between_actions, on_state_change], mandatory: true, user_can_disable: false}
@@ -294,15 +294,15 @@ intents:
   - {id: OPS-010, name: ImportExport, conditional: true, mandatory: false, user_can_disable: true}
   - {id: OPS-011, name: RecallAndSafetyNotice, conditional: true, mandatory: false, user_can_disable: true}
   - {id: OPS-012, name: LocalRuleApplicability, conditional: true, mandatory: false, user_can_disable: true}
-  - {id: GOV-001, name: RuleVersionCurrent, mandatory: true, user_can_disable: false}
-  - {id: GOV-002, name: EvidenceCompleteness, mandatory: true, user_can_disable: false}
-  - {id: GOV-003, name: DecisionTraceability, mandatory: true, user_can_disable: false}
+  - {id: GOV-001, name: RuleVersionCurrent, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: GOV-002, name: EvidenceCompleteness, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
+  - {id: GOV-003, name: DecisionTraceability, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
   - {id: GOV-004, name: PolicyCoverage, mandatory: false, user_can_disable: true}
-  - {id: GOV-005, name: ExceptionExpiry, mandatory: true, user_can_disable: false}
+  - {id: GOV-005, name: ExceptionExpiry, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
   - {id: GOV-006, name: HumanReviewRequired, mandatory: false, user_can_disable: true}
-  - {id: GOV-007, name: RegulatoryChange, mandatory: true, user_can_disable: false}
+  - {id: GOV-007, name: RegulatoryChange, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
   - {id: GOV-008, name: DataLineage, mandatory: false, user_can_disable: true}
-  - {id: GOV-009, name: ControlConflict, mandatory: true, user_can_disable: false}
+  - {id: GOV-009, name: ControlConflict, mandatory: true, user_can_disable: false, default_points: [between_actions, scheduled, on_state_change]}
   - {id: GOV-010, name: ComplianceStatusDisclosure, mandatory: false, user_can_disable: true}
 legal_sources_to_register:
   - "Planalto — legislação federal consolidada"
