@@ -55,7 +55,7 @@ python -m pytest -q
 
 ## Entidade Person e execução dos controles LGPD
 
-O módulo `compliance/person.py` fornece uma entidade `Person` e um `PersonService`
+O módulo `compliance/catalog.py` carrega `catalog/compliance-definitions.json` uma vez na inicialização, indexando Agents, Actions e Intents e validando referências cruzadas. O JSON define o catálogo declarativo; `catalog/compliance-registry.yaml` continua sendo a configuração operacional usada pelo motor de políticas. A aplicação não deve enviar o JSON de 192 KB a cada chamada: carregue-o na inicialização e consulte as definições por ID. O módulo `compliance/person.py` deriva do JSON os Intents do domínio LGPD e fornece uma entidade `Person` e um `PersonService`
 de referência. Criação, leitura e exclusão passam pelo interceptor e avaliam os
 20 controles `PRIV-001` a `PRIV-020` nos pontos `on_ingress`, `before_egress`
 e `between_actions`. Evidência ausente ou inválida resulta em `indeterminate`
