@@ -144,15 +144,16 @@ class ComplianceEngine:
         ]
         enabled = context.execution_point in intent.default_points
         enforcement = str(self.defaults["enforcement"])
-        point_override_found = False
+        point_policy_found = False
+        enabled_policy_found = False
 
         for policy in policies:
-            if context.execution_point in policy.execution and not point_override_found:
+            if not point_policy_found and context.execution_point in policy.execution:
                 enabled = policy.execution[context.execution_point]
-                point_override_found = True
-            if policy.enabled is not None:
+                point_policy_found = True
+            if not enabled_policy_found and policy.enabled is not None:
                 enabled = policy.enabled
-                break
+                enabled_policy_found = True
         for policy in policies:
             if policy.enforcement is not None:
                 enforcement = policy.enforcement
